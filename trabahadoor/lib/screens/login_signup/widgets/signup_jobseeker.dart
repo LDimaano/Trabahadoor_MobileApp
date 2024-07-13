@@ -1,25 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:trabahadoor/screens/login_signup/login_signup.dart';
 
-class SignUpForm_jobseeker extends StatefulWidget {
-  const SignUpForm_jobseeker({super.key});
+class SignUpFormJobseeker extends StatefulWidget {
+  const SignUpFormJobseeker({super.key});
 
   @override
-  _SignUpForm_jobseekerState createState() => _SignUpForm_jobseekerState();
+  _SignUpFormJobseekerState createState() => _SignUpFormJobseekerState();
 }
 
-class _SignUpForm_jobseekerState extends State<SignUpForm_jobseeker> {
+class _SignUpFormJobseekerState extends State<SignUpFormJobseeker> {
   final _formKey = GlobalKey<FormState>();
-  double skill1Level = 0;
-  double skill2Level = 0;
-  double skill3Level = 0;
-  final TextEditingController skill1Controller = TextEditingController();
-  final TextEditingController skill2Controller = TextEditingController();
-  final TextEditingController skill3Controller = TextEditingController();
   final TextEditingController fullNameController = TextEditingController();
   final TextEditingController addressController = TextEditingController();
   final TextEditingController jobPositionController = TextEditingController();
   final TextEditingController experienceController = TextEditingController();
+  final List<TextEditingController> skillControllers = [
+    TextEditingController()
+  ];
+  final List<double> skillLevels = [0.0];
+
+  void addSkill() {
+    setState(() {
+      skillControllers.add(TextEditingController());
+      skillLevels.add(0.0);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,71 +73,38 @@ class _SignUpForm_jobseekerState extends State<SignUpForm_jobseeker> {
                   },
                 ),
                 const SizedBox(height: 16.0),
-                inputFile(
-                  label: 'Skill 1',
-                  controller: skill1Controller,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your first skill';
-                    }
-                    return null;
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: skillControllers.length,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        inputFile(
+                          label: 'Skills',
+                          controller: skillControllers[index],
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter your skills';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 16.0),
+                      ],
+                    );
                   },
                 ),
-                Slider(
-                  value: skill1Level,
-                  min: 0,
-                  max: 100,
-                  divisions: 100,
-                  label: skill1Level.round().toString(),
-                  onChanged: (double value) {
-                    setState(() {
-                      skill1Level = value;
-                    });
-                  },
-                ),
-                inputFile(
-                  label: 'Skill 2',
-                  controller: skill2Controller,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your second skill';
-                    }
-                    return null;
-                  },
-                ),
-                Slider(
-                  value: skill2Level,
-                  min: 0,
-                  max: 100,
-                  divisions: 100,
-                  label: skill2Level.round().toString(),
-                  onChanged: (double value) {
-                    setState(() {
-                      skill2Level = value;
-                    });
-                  },
-                ),
-                inputFile(
-                  label: 'Skill 3',
-                  controller: skill3Controller,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your third skill';
-                    }
-                    return null;
-                  },
-                ),
-                Slider(
-                  value: skill3Level,
-                  min: 0,
-                  max: 100,
-                  divisions: 100,
-                  label: skill3Level.round().toString(),
-                  onChanged: (double value) {
-                    setState(() {
-                      skill3Level = value;
-                    });
-                  },
+                ElevatedButton(
+                  onPressed: addSkill,
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        Theme.of(context).primaryColor),
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                  ),
+                  child: const Text('Add Another Skill'),
                 ),
                 const SizedBox(height: 16.0),
                 inputFile(

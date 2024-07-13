@@ -169,7 +169,7 @@ class _SignupPageState extends State<SignupPage> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    const SignUpForm_jobseeker()),
+                                    const SignUpFormJobseeker()),
                           );
                         } else if (_userType == 'employer') {
                           Navigator.push(
