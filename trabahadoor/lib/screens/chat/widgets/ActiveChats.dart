@@ -12,7 +12,6 @@ class ActiveChats extends StatelessWidget {
       "asset/images/chat4.jpg",
       "asset/images/chat5.jpg",
       "asset/images/chat6.jpg",
-      "asset/images/3.png"
     ];
 
     return Padding(
