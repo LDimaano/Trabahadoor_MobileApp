@@ -8,44 +8,39 @@ class Homechat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 217, 211, 211)
-          .withOpacity(0.1), // Match background color
+      backgroundColor:
+          const Color.fromARGB(255, 217, 211, 211).withOpacity(0.1),
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-            horizontal: 20), // Increase horizontal padding for extra space
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
           children: [
             const Padding(
-              padding: EdgeInsets.symmetric(
-                  vertical: 15), // Thinner vertical padding for text
+              padding: EdgeInsets.symmetric(vertical: 15),
               child: Text(
                 "Messages",
                 style: TextStyle(
-                  color: Colors.black, // Match font color
-                  fontSize: 24, // Match font size
-                  fontWeight: FontWeight.w600, // Match font weight
+                  color: Colors.black,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
-            const SizedBox(height: 10), // Thinner padding before the rectangle
+            const SizedBox(height: 10),
             Container(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 10), // Thinner padding inside container
+              padding: const EdgeInsets.all(5),
               decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-                // Removed boxShadow to eliminate shadows
-              ),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(color: Colors.black, width: 2)),
               child: Row(
                 children: [
                   Expanded(
-                    // Use Expanded to make the text field take available space
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10), // Thinner padding for the text field
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: TextFormField(
                         decoration: const InputDecoration(
                           hintText: "Search",
+                          hintStyle: TextStyle(color: Colors.black),
                           border: InputBorder.none,
                         ),
                       ),
@@ -58,7 +53,7 @@ class Homechat extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 15), // Add space after the search bar
+            const SizedBox(height: 15),
             ActiveChats(),
             RecentChats(),
           ],
