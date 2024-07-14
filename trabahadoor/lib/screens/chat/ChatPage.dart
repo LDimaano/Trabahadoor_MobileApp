@@ -19,7 +19,7 @@ class ChatPage extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(30),
                   child: Image.asset(
-                    "asset/images/avatar.png",
+                    "asset/images/chat1.jpg",
                     height: 45,
                     width: 45,
                   ),
@@ -27,7 +27,7 @@ class ChatPage extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.only(left: 10),
                   child: Text(
-                    "Programmer",
+                    "Jihyo Park",
                     style: TextStyle(color: Colors.black),
                   ),
                 ),
@@ -36,15 +36,18 @@ class ChatPage extends StatelessWidget {
             actions: const [
               Padding(
                 padding: EdgeInsets.only(right: 25),
-                child: Icon(Icons.call, color: Colors.black, size: 26),
+                child: Icon(Icons.call,
+                    color: Color.fromRGBO(3, 63, 118, 1), size: 26),
               ),
               Padding(
                 padding: EdgeInsets.only(right: 25),
-                child: Icon(Icons.video_call, color: Colors.black, size: 30),
+                child: Icon(Icons.video_call,
+                    color: Color.fromRGBO(3, 63, 118, 1), size: 30),
               ),
               Padding(
                 padding: EdgeInsets.only(right: 25),
-                child: Icon(Icons.more_vert, color: Colors.black),
+                child:
+                    Icon(Icons.more_vert, color: Color.fromRGBO(3, 63, 118, 1)),
               ),
             ],
           ),
@@ -53,7 +56,7 @@ class ChatPage extends StatelessWidget {
       body: ListView(
         padding:
             const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 80),
-        children: [
+        children: const [
           ChatSample(),
           ChatSample(),
           ChatSample(),
@@ -61,7 +64,7 @@ class ChatPage extends StatelessWidget {
           ChatSample(),
         ],
       ),
-      bottomSheet: ChatBottomSheet(),
+      bottomSheet: const ChatBottomSheet(),
     );
   }
 }
