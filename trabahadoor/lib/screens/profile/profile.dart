@@ -7,9 +7,11 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
-        backgroundColor: Colors.white, // Beige primary color
+        title: const Text('Profile', style: TextStyle(color: Colors.white)),
+        backgroundColor: Theme.of(context).primaryColor,
+        elevation: 0,
       ),
+      backgroundColor: Colors.white.withOpacity(0.95),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -25,94 +27,46 @@ class ProfilePage extends StatelessWidget {
                 'Jisoo',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
+              const SizedBox(height: 5),
               const Text(
                 'Jisoo@gmail.com',
                 style: TextStyle(color: Colors.grey),
               ),
-              const SizedBox(height: 10),
-              ElevatedButton(
+              const SizedBox(height: 20),
+              ElevatedButton.icon(
                 onPressed: () {},
-                child: const Text('Upgrade To PRO'),
+                icon: const Icon(Icons.edit, size: 20, color: Colors.white),
+                label: const Text(
+                  'Edit Profile',
+                  style: TextStyle(color: Colors.white),
+                ),
                 style: ElevatedButton.styleFrom(
-                  iconColor: Colors.blue, // Button color
+                  backgroundColor: Theme.of(context).primaryColor,
                   shape: const StadiumBorder(),
                 ),
               ),
               const SizedBox(height: 20),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Column(
-                    children: [
-                      Text(
-                        '4.8',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      Text('Ranking'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        '35',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      Text('Following'),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        '50',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      Text('Followers'),
-                    ],
-                  ),
-                ],
-              ),
+              _buildSectionTitle('Skills'),
+              _buildSkillList(),
               const SizedBox(height: 20),
-              const Divider(),
-              const ListTile(
-                leading: Icon(Icons.code),
-                title: Text('Technical Proficiency'),
+              _buildSectionTitle('Experience'),
+              _buildExperienceItem(
+                'Systems Analyst',
+                'Company ABC',
+                'January 2018 - December 2020',
+                'Led a team of analysts in developing and implementing systems for data management.',
               ),
-              const ListTile(
-                leading: Icon(Icons.chat),
-                title: Text('Communication Skills'),
+              _buildExperienceItem(
+                'Full-Stack Developer',
+                'Tech Solutions Inc.',
+                'May 2016 - December 2017',
+                'Designed and developed scalable web applications using React.js and Node.js.',
               ),
-              const ListTile(
-                leading: Icon(Icons.loop),
-                title: Text('Adaptability and Continuous Learning'),
-              ),
-              const ListTile(
-                leading: Icon(Icons.business_center),
-                title: Text('Project Management'),
-              ),
-              const ListTile(
-                leading: Icon(Icons.lightbulb),
-                title: Text('Problem-Solving Abilities'),
-              ),
-              const Divider(),
-              ListTile(
-                title: Text('Experience'),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildExperienceItem(Icons.work, 'Systems Analyst'),
-                    SizedBox(height: 2),
-                    _buildExperienceItem(Icons.work, 'Full-Stack Developer'),
-                    SizedBox(height: 2),
-                    _buildExperienceItem(Icons.work, 'Mobile App Developer'),
-                    SizedBox(height: 2),
-                    _buildExperienceItem(Icons.work, 'Web Developer'),
-                    SizedBox(height: 2),
-                    _buildExperienceItem(Icons.work, 'Software Developer'),
-                  ],
-                ),
+              _buildExperienceItem(
+                'Mobile App Developer',
+                'MobileTech Ltd.',
+                'August 2014 - April 2016',
+                'Created native Android applications that achieved 1 million downloads on Google Play.',
               ),
             ],
           ),
@@ -121,13 +75,68 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-  Widget _buildExperienceItem(IconData iconData, String text) {
-    return Row(
-      children: [
-        Icon(iconData),
-        SizedBox(width: 8),
-        Text(text),
-      ],
+  Widget _buildSectionTitle(String title) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Text(
+        title,
+        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+
+  Widget _buildSkillList() {
+    List<String> skills = [
+      'Technical Proficiency',
+      'Communication Skills',
+      'Adaptability and Continuous Learning',
+      'Project Management',
+      'Problem-Solving Abilities',
+    ];
+
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: skills.length,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 1),
+          child: ListTile(
+            dense: true,
+            visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
+            leading: const Icon(Icons.circle, size: 10),
+            contentPadding: EdgeInsets.zero,
+            title: Text(
+              skills[index],
+              style: const TextStyle(fontSize: 14),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildExperienceItem(
+      String title, String company, String duration, String details) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: ListTile(
+        contentPadding: EdgeInsets.zero,
+        title: Text(
+          title,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(company),
+            const SizedBox(height: 2),
+            Text(duration),
+            const SizedBox(height: 2),
+            Text('- $details'),
+          ],
+        ),
+      ),
     );
   }
 }

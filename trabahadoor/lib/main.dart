@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:trabahadoor/screens/chat/HomeChat.dart';
+import 'package:trabahadoor/screens/profile/profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +23,6 @@ class MyApp extends StatelessWidget {
           hintColor: const Color(0x0ffed408),
           textTheme: GoogleFonts.poppinsTextTheme(),
         ),
-        home: const Homechat());
+        home: const ProfilePage());
   }
 }
