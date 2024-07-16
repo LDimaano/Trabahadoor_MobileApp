@@ -33,7 +33,16 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex],
+      body: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 300),
+        child: _pages[_selectedIndex],
+        transitionBuilder: (Widget child, Animation<double> animation) {
+          return FadeTransition(
+            opacity: animation,
+            child: child,
+          );
+        },
+      ),
       bottomNavigationBar: Theme(
         data: ThemeData(
           splashColor: Colors.transparent,
@@ -88,31 +97,40 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Row(children: [
-            Expanded(
-              flex: 2,
-              child: Container(),
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Container(),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    color: const Color.fromARGB(255, 217, 211, 211).withOpacity(0.1),
+                  ),
+                ),
+              ],
             ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                color:
-                    const Color.fromARGB(255, 217, 211, 211).withOpacity(0.1),
+            SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const HomeAppBar(),
+                  const SizedBox(height: 20), // Adjust spacing as needed
+                  const SearchCard(),
+                  const SizedBox(height: 20), // Adjust spacing as needed
+                  const TagList(),
+                  const SizedBox(height: 20), // Adjust spacing as needed
+                  JobList(),
+                  const SizedBox(height: 20), // Adjust spacing as needed
+                ],
               ),
             ),
-          ]),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const HomeAppBar(),
-              const SearchCard(),
-              const TagList(),
-              JobList(),
-            ],
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

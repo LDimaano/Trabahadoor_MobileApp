@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,33 +16,41 @@ class ProfilePage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage('asset/images/profile.jpg'),
+              Center(
+                child: CircleAvatar(
+                  radius: 50,
+                  backgroundImage: AssetImage('asset/images/profile.jpg'),
+                ),
               ),
               const SizedBox(height: 10),
-              const Text(
-                'Jisoo',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              Center(
+                child: Text(
+                  'Jisoo',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
               ),
               const SizedBox(height: 5),
-              const Text(
-                'Jisoo@gmail.com',
-                style: TextStyle(color: Colors.grey),
+              Center(
+                child: Text(
+                  'Jisoo@gmail.com',
+                  style: TextStyle(color: Colors.grey),
+                ),
               ),
               const SizedBox(height: 20),
-              ElevatedButton.icon(
-                onPressed: () {},
-                icon: const Icon(Icons.edit, size: 20, color: Colors.white),
-                label: const Text(
-                  'Edit Profile',
-                  style: TextStyle(color: Colors.white),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Theme.of(context).primaryColor,
-                  shape: const StadiumBorder(),
+              Center(
+                child: ElevatedButton.icon(
+                  onPressed: () {},
+                  icon: const Icon(Icons.edit, size: 20, color: Colors.white),
+                  label: const Text(
+                    'Edit Profile',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).primaryColor,
+                    shape: const StadiumBorder(),
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
