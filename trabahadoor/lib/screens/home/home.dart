@@ -106,12 +106,6 @@ class HomePage extends StatelessWidget {
                   flex: 2,
                   child: Container(),
                 ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    color: const Color.fromARGB(255, 217, 211, 211).withOpacity(0.1),
-                  ),
-                ),
               ],
             ),
             SingleChildScrollView(
@@ -119,13 +113,13 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const HomeAppBar(),
-                  const SizedBox(height: 20), // Adjust spacing as needed
+                  const SizedBox(height: 20),
                   const SearchCard(),
-                  const SizedBox(height: 20), // Adjust spacing as needed
+                  const SizedBox(height: 20),
                   const TagList(),
-                  const SizedBox(height: 20), // Adjust spacing as needed
+                  const SizedBox(height: 20),
                   JobList(),
-                  const SizedBox(height: 20), // Adjust spacing as needed
+                  const SizedBox(height: 20),
                 ],
               ),
             ),

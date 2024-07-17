@@ -8,6 +8,11 @@ class Homechat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Messages', style: TextStyle(color: Colors.white)),
+        backgroundColor: Theme.of(context).primaryColor,
+        elevation: 0,
+      ),
       backgroundColor:
           const Color.fromARGB(255, 217, 211, 211).withOpacity(0.1),
       body: Padding(
@@ -16,23 +21,14 @@ class Homechat extends StatelessWidget {
           children: [
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 15),
-              child: Text(
-                "Messages",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 1),
             Container(
-              height: 40,
+              height: 50,
               padding: const EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30),
-                border: Border.all(color: Colors.grey, width: 2),
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -63,7 +59,7 @@ class Homechat extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 5),
             ActiveChats(),
             RecentChats(),
           ],

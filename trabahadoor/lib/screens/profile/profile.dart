@@ -11,7 +11,7 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
       ),
-      backgroundColor: Colors.white.withOpacity(0.95),
+      backgroundColor: Color.fromRGBO(254, 247, 255, 1.0),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +32,8 @@ class ProfilePage extends StatelessWidget {
                         children: [
                           Text(
                             'Jisoo',
-                            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 24, fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 5),
                           Text(
@@ -43,7 +44,8 @@ class ProfilePage extends StatelessWidget {
                           Center(
                             child: ElevatedButton.icon(
                               onPressed: () {},
-                              icon: const Icon(Icons.edit, size: 20, color: Colors.white),
+                              icon: const Icon(Icons.edit,
+                                  size: 20, color: Colors.white),
                               label: const Text(
                                 'Edit Profile',
                                 style: TextStyle(color: Colors.white),
