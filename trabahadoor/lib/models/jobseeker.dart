@@ -5,82 +5,98 @@ class Jobseeker {
   String title;
   String location;
   String time;
-  List<String> req;
+  List<String> exp;
+  List<String> skills;
   Jobseeker(this.company, this.logoUrl, this.isMark, this.title, this.location,
-      this.time, this.req);
+      this.time, this.skills, this.exp);
   static List<Jobseeker> generateJobs() {
     return [
       Jobseeker(
-        'Carla Dimaandal',
-        'asset/images/Swift.jpeg',
-        false,
-        'Operations Manager',
-        'Lipa City',
-        'Full Time',
-        [
-          'Bacelors Degree in Business Adminstration, Logistics',
-          '5+ years of experience in logistics operations management',
-          'Proven Leadership and team management skills',
-          'Strong analytical and problem solving abilities',
-          'Excellent communication and interpersonal skills'
-        ],
-      ),
+          'Juanito Santos',
+          'asset/images/emp1.jpg',
+          false,
+          'Customer Service Representative',
+          'Taysan, San Jose, Batangas',
+          'Full Time', [
+        'Communication Skills',
+        'Active Listening',
+        'Problem Solving Skills',
+      ], [
+        'Technical Support Specialist (2019-2020)',
+        'Customer Service Associate (2021-2022)',
+      ]),
       Jobseeker(
-        'Lance Dimaano',
-        'asset/images/Optitech.png',
-        true,
-        'IT Support Specialist',
-        'Lipa, City',
-        'Full Time',
-        [
-          'Diploma Degree in Computer Science and Information Technology',
-          '1+ years of experience in providing IT support or troubleshooting',
-          'Knowledge of computer hardware, software, and network systems',
-          'Strong problem-solving skills and ability independently',
-          'Excellent communication and customer service skills'
-        ],
-      ),
+          'Isabel Garcia',
+          'asset/images/emp2.jpg',
+          true,
+          'Marketing Manager',
+          'Balagtasin I, San Jose, Batangas',
+          'Full Time', [
+        'Communication Skills',
+        'Strategic Thinking Skills',
+        'Analytical Skills',
+      ], [
+        'Marketing Coordinator (2018-2020)'
+      ]),
       Jobseeker(
-        'Andrei Boongaling',
-        'asset/images/Aquatech.png',
-        true,
-        'Sales Executive',
-        'Batangas City',
-        'Full Time',
-        [
-          'Bachelors Degree in Business Administration, Marketing',
-          '2+ years of experience in sales, preferably in water treatment',
-          'Proven track record of achieving sales target',
-          'Excellent communication and negotiation skills'
-        ],
-      ),
+          'Andres Bautista',
+          'asset/images/emp3.jpg',
+          true,
+          'Financial Analyst',
+          'Banaybanay II. San Jose, Batangas',
+          'Full Time', [
+        'Communication Skills',
+        'Analytical Skills',
+        'Problem-Solving Skills',
+      ], [
+        'Junior Financial Analyst (2019-2020)'
+      ]),
+      Jobseeker('Josefa Aquino', 'asset/images/emp4.jpg', true,
+          'Sales Executive', 'Galamay-Amo, San Jose, Batangas', 'Full Time', [
+        'Communication Skills',
+        'Customer Relationship Management',
+        'Problem-Solving',
+      ], [
+        'Account Manager (2020-2021)',
+        'Customer Service Representative (2022)'
+      ]),
       Jobseeker(
-        'Julie Flores',
-        'asset/images/Contis.png',
-        true,
-        'Utility Maintenance',
-        'Batangas City',
-        'Full Time',
-        [
-          'Atleast 18 years old',
-          'Atleast Highschool or Senior High School Graduate',
-          'With or Without Experience',
-          'Willing to work on extended hours and or shifting assignments'
-        ],
-      ),
+          'Fernando Delos Santos',
+          'asset/images/emp5.jpg',
+          false,
+          'Software Developer',
+          'Bagong Pook, San Jose, Batangas',
+          'Full Time',
+          ['Technical Skills', 'Communication Skills', 'Teamwork'],
+          ['Full-Stack Developer (2021-2023)']),
       Jobseeker(
-        'Kurt Hernandez',
-        'asset/images/Alorica.png',
-        false,
-        'Starter Basic Accounts',
-        'Lipa, Batangas',
-        'Full Time',
-        [
-          'Atleast 18 years old',
-          'Atleast Highschool or Senior High School Graduate',
-          'Excellent communication skills'
-        ],
-      ),
+          'Maria Rosario Cruz',
+          'asset/images/emp6.jpg',
+          false,
+          'Digital Marketing Specialist',
+          'Dagatan, San Jose, Batangas',
+          'Full Time', [
+        'Communication Skills',
+        'Graphic Design',
+        'Content Marketing'
+      ], [
+        'Social Media Manager (2019-2021)',
+        'Content Marketing Specialist (2023-2024)'
+      ]),
+      Jobseeker(
+          'Luzviminda Reyes',
+          'asset/images/emp7.jpg',
+          false,
+          'Human Resource Specialist',
+          'Palanca, San Jose, Batangas',
+          'Full Time', [
+        'Communication Skills',
+        'Problem-Solving Skills',
+        'Decision-Making Skills'
+      ], [
+        'HR Assistant (2018-2020)',
+        'Recruitment Coordinator (2022)'
+      ]),
     ];
   }
 }

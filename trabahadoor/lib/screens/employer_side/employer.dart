@@ -21,7 +21,7 @@ class _MainScreenempState extends State<MainScreenemp> {
     const SearchPage(),
     const Center(child: const Text('')),
     const Homechat(),
-    const EmployerSide(), //profile na gagawin ni andrei/julie
+    const EmployerSide(),
   ];
 
   void _onItemTapped(int index) {

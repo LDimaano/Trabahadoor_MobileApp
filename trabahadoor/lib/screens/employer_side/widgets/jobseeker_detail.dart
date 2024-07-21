@@ -101,7 +101,46 @@ class JobDetail extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10),
-                ...job.req
+                ...job.skills
+                    .map((e) => Container(
+                        margin: const EdgeInsets.symmetric(vertical: 5),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(top: 10),
+                              height: 5,
+                              width: 5,
+                              decoration: const BoxDecoration(
+                                  shape: BoxShape.circle, color: Colors.black),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            ConstrainedBox(
+                              constraints: const BoxConstraints(
+                                maxWidth: 300,
+                              ),
+                              child: Text(
+                                e,
+                                style: const TextStyle(
+                                  wordSpacing: 2.5,
+                                  height: 1.5,
+                                ),
+                              ),
+                            ),
+                          ],
+                        )))
+                    .toList(),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  'Experience',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 10),
+                ...job.exp
                     .map((e) => Container(
                         margin: const EdgeInsets.symmetric(vertical: 5),
                         child: Row(

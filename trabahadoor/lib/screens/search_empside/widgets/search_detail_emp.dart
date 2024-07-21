@@ -84,7 +84,7 @@ class JobDetail extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10),
-                ...job.req
+                ...job.skills
                     .map((e) => Container(
                         margin: const EdgeInsets.symmetric(vertical: 5),
                         child: Row(
