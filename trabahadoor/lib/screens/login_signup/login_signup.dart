@@ -19,6 +19,12 @@ class LoginSignup extends StatelessWidget {
             children: <Widget>[
               Column(
                 children: <Widget>[
+                  Image.asset(
+                    "asset/images/login-img.png", // Path to your logo
+                    height: 100, // Adjust the size as needed
+                    width: 100,
+                  ),
+                  const SizedBox(height: 20),
                   const Text(
                     "Welcome",
                     style: TextStyle(
@@ -26,9 +32,7 @@ class LoginSignup extends StatelessWidget {
                       fontSize: 45,
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: 20),
                   Text(
                     "TrabahaDoor: Opening Opportunities For All",
                     textAlign: TextAlign.center,
