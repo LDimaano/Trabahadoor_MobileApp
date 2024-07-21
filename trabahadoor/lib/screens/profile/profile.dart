@@ -11,7 +11,7 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
       ),
-      backgroundColor: Color.fromRGBO(254, 247, 255, 1.0),
+      backgroundColor: const Color.fromRGBO(254, 247, 255, 1.0),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,24 +30,29 @@ class ProfilePage extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'Jisoo',
-                            style: TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 5),
-                          Text(
+                          const Text(
                             'Jisoo@gmail.com',
                             style: TextStyle(color: Colors.grey),
                           ),
                           const SizedBox(height: 20),
                           Center(
                             child: ElevatedButton.icon(
-                              onPressed: () {},
-                              icon: const Icon(Icons.edit,
-                                  size: 20, color: Colors.white),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const ApplicationStatusPage(),
+                                  ),
+                                );
+                              },
+                              icon: const Icon(Icons.visibility, size: 20, color: Colors.white),
                               label: const Text(
-                                'Edit Profile',
+                                'View Application Status',
                                 style: TextStyle(color: Colors.white),
                               ),
                               style: ElevatedButton.styleFrom(
@@ -102,7 +107,7 @@ class ProfilePage extends StatelessWidget {
           width: 5, // Adjust border width as needed
         ),
       ),
-      child: CircleAvatar(
+      child: const CircleAvatar(
         radius: 50,
         backgroundImage: AssetImage('asset/images/profile.jpg'),
       ),
@@ -173,4 +178,154 @@ class ProfilePage extends StatelessWidget {
       ),
     );
   }
+}
+
+class ApplicationStatusPage extends StatelessWidget {
+  const ApplicationStatusPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    List<ApplicationStatus> statuses = [
+      ApplicationStatus(
+        jobTitle: 'Systems Analyst',
+        companyLogo: 'asset/images/Alorica.png',
+        status: 'Interview Scheduled',
+      ),
+      ApplicationStatus(
+        jobTitle: 'Full-Stack Developer',
+        companyLogo: 'asset/images/Optitech.png',
+        status: 'Pending',
+      ),
+      ApplicationStatus(
+        jobTitle: 'Mobile App Developer',
+        companyLogo: 'asset/images/Alorica.png',
+        status: 'Accepted',
+      ),
+    ];
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Application Status', style: TextStyle(color: Colors.white)),
+        backgroundColor: Theme.of(context).primaryColor,
+        elevation: 0,
+        iconTheme: IconThemeData(color: Colors.white), // Set back arrow color to white
+      ),
+      body: Container(
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Table(
+                border: TableBorder(
+                  horizontalInside: BorderSide(color: Colors.grey.withOpacity(0.5), width: 1),
+                ),
+                columnWidths: const {
+                  0: FlexColumnWidth(),
+                  1: FixedColumnWidth(150),
+                },
+                children: [
+                  TableRow(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(
+                          'Job',
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(
+                          'Status',
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+                      ),
+                    ],
+                  ),
+                  for (var status in statuses) _buildTableRow(status),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  TableRow _buildTableRow(ApplicationStatus status) {
+    Color getStatusColor(String status) {
+      switch (status) {
+        case 'Interview Scheduled':
+          return Colors.orange;
+        case 'Pending':
+          return Colors.blue;
+        case 'Accepted':
+          return Colors.green;
+        default:
+          return Colors.grey;
+      }
+    }
+
+    IconData getStatusIcon(String status) {
+      switch (status) {
+        case 'Interview Scheduled':
+          return Icons.schedule;
+        case 'Pending':
+          return Icons.hourglass_empty;
+        case 'Accepted':
+          return Icons.check_circle;
+        default:
+          return Icons.help;
+      }
+    }
+
+    return TableRow(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: Image.asset(
+                  status.companyLogo,
+                  height: 40,
+                  width: 40,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(child: Text(status.jobTitle)),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Icon(getStatusIcon(status.status), color: getStatusColor(status.status)),
+              const SizedBox(width: 5),
+              Expanded(
+                child: Text(status.status, style: TextStyle(color: getStatusColor(status.status))),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ApplicationStatus {
+  final String jobTitle;
+  final String companyLogo;
+  final String status;
+
+  ApplicationStatus({
+    required this.jobTitle,
+    required this.companyLogo,
+    required this.status,
+  });
 }
