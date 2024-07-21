@@ -22,7 +22,7 @@ class JobList extends StatelessWidget {
                     backgroundColor: Colors.transparent,
                     isScrollControlled: true,
                     context: context,
-                    builder: (context) => JobDetail(jobList[index]));
+                    builder: (context) => JobDetailemp(jobList[index]));
               },
               child: JobItem(jobList[index])),
           separatorBuilder: (_, index) => const SizedBox(

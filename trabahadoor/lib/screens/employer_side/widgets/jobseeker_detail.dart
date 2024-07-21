@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:trabahadoor/models/jobseeker.dart';
 
-class JobDetail extends StatelessWidget {
+class JobDetailemp extends StatelessWidget {
   final Jobseeker job;
-  const JobDetail(this.job, {super.key});
+  const JobDetailemp(this.job, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +32,21 @@ class JobDetail extends StatelessWidget {
                     Row(
                       children: [
                         Container(
-                            height: 40,
-                            width: 40,
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.grey.withOpacity(0.1)),
-                            child: Image.asset(job.logoUrl)),
+                          height: 60,
+                          width: 60,
+                          padding: const EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.grey.withOpacity(0.3),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              job.logoUrl,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
                         const SizedBox(width: 10),
                         Text(job.company,
                             style: const TextStyle(
