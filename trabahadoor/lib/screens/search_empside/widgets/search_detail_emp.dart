@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:trabahadoor/models/jobseeker.dart';
-import 'package:trabahadoor/widgets/icon_text.dart';
 
 class JobDetailemp extends StatelessWidget {
   final Jobseeker job;
