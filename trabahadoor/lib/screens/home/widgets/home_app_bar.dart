@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trabahadoor/screens/notification/notification.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
@@ -48,22 +49,33 @@ class HomeAppBar extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                      margin: const EdgeInsets.only(top: 30, right: 10),
-                      transform: Matrix4.rotationZ(100),
+                    margin: const EdgeInsets.only(top: 30, right: 10),
+                    transform: Matrix4.rotationZ(100),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NotificationPage()),
+                        );
+                      },
                       child: Stack(
                         children: [
                           const Icon(Icons.notifications_none_outlined,
                               size: 30, color: Colors.grey),
                           Positioned(
-                              top: 0,
-                              right: 0,
-                              child: Container(
-                                padding: const EdgeInsets.all(4),
-                                decoration: const BoxDecoration(
-                                    color: Colors.red, shape: BoxShape.circle),
-                              ))
+                            top: 0,
+                            right: 0,
+                            child: Container(
+                              padding: const EdgeInsets.all(4),
+                              decoration: const BoxDecoration(
+                                  color: Colors.red, shape: BoxShape.circle),
+                            ),
+                          ),
                         ],
-                      )),
+                      ),
+                    ),
+                  ),
                   const SizedBox(width: 20),
                   ClipOval(
                       child: Image.asset(

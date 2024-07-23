@@ -1,18 +1,41 @@
 import 'package:flutter/material.dart';
 
 class EmployerNotificationPage extends StatelessWidget {
+  const EmployerNotificationPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.of(context).pop();
           },
         ),
-        title: Text('Employer Notifications', textAlign: TextAlign.center),
+        title: const Text(
+          'Notifications',
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.settings, color: Colors.white),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: ListView(
         children: [
@@ -21,58 +44,65 @@ class EmployerNotificationPage extends StatelessWidget {
             'Jhoanna Robles',
             'You have a new job application from Jennie Kim.',
             '1h',
+            'asset/images/chatemp1.jpg',
           ),
           _buildNotificationItem(
             context,
             'Mikhaela Lim',
             'Reminder: Meeting scheduled with team at 3 PM.',
             '3h',
+            'asset/images/chatemp2.jpg',
           ),
           _buildNotificationItem(
             context,
             'Mary Loi Ricalde',
             'New policy updates available for review.',
             '5h',
+            'asset/images/chatemp5.jpg',
           ),
           _buildNotificationItem(
             context,
             'Nicolette Vergara',
             'You have a new job application from Taehyung Kim.',
             '5h',
+            'asset/images/chatemp7.jpg',
           ),
           _buildNotificationItem(
             context,
             'Maraiah Arceta',
             'Reminder: Meeting scheduled with team at 10 PM.',
             '5h',
+            'asset/images/chatemp8.jpg',
           ),
         ],
       ),
     );
   }
 
-  Widget _buildNotificationItem(BuildContext context, String name, String content, String time) {
+  Widget _buildNotificationItem(BuildContext context, String name,
+      String content, String time, String imagePath) {
     return ListTile(
       leading: CircleAvatar(
-        child: Icon(Icons.business),
+        backgroundImage: AssetImage(imagePath),
       ),
       title: RichText(
         text: TextSpan(
           children: [
             TextSpan(
               text: '$name ',
-              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold, color: Colors.black),
             ),
             TextSpan(
               text: content,
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
             ),
           ],
         ),
       ),
       subtitle: Text(
         time,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.grey,
           fontSize: 12.0,
           fontWeight: FontWeight.normal,

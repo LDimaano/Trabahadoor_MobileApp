@@ -31,7 +31,7 @@ class ProfilePage_emp extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Tech Solutions Inc.',
+                            'Alorica Philippines Inc.',
                             style: TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.bold),
                           ),
@@ -41,7 +41,7 @@ class ProfilePage_emp extends StatelessWidget {
                               Icon(Icons.email, color: Colors.grey),
                               SizedBox(width: 8),
                               Text(
-                                'info@techsolutions.com',
+                                'info@alorica.com',
                                 style: TextStyle(color: Colors.grey),
                               ),
                             ],
@@ -52,7 +52,7 @@ class ProfilePage_emp extends StatelessWidget {
                               Icon(Icons.location_on, color: Colors.grey),
                               SizedBox(width: 8),
                               Text(
-                                '123 Tech Street, Silicon Valley, CA',
+                                'SM City Lipa, Batangas',
                                 style: TextStyle(color: Colors.grey),
                               ),
                             ],
@@ -65,15 +65,15 @@ class ProfilePage_emp extends StatelessWidget {
                   const SizedBox(height: 30),
                   _buildSectionTitle('Company Overview'),
                   const Text(
-                    'Tech Solutions Inc. is a leading provider of innovative technology solutions. We specialize in software development, IT consulting, and cloud services to help businesses achieve their goals through digital transformation.',
+                    'Alorica is a leading provider of Business Process and Customer Satisfaction Outsourcing solutions that span the entire customer lifecycle.',
                     style: TextStyle(fontSize: 16),
                   ),
                   const SizedBox(height: 30),
                   _buildSectionTitle('Job Listings'),
                   _buildJobListing(
                     context,
-                    'Software Engineer',
-                    'We are looking for a skilled software engineer to join our team.',
+                    'Site Director',
+                    'We are looking for a skilled site director to join our team.',
                   ),
                   _buildJobListing(
                     context,
@@ -177,28 +177,28 @@ class JobApplicantsPage extends StatefulWidget {
 class _JobApplicantsPageState extends State<JobApplicantsPage> {
   List<Applicant> applicants = [
     Applicant(
-        name: 'Alice Johnson',
+        name: 'Jhoanna Robles',
         status: 'Scheduled',
-        image: 'asset/images/applicant1.jpg',
+        image: 'asset/images/chatemp1.jpg',
         message:
             'I am very interested in this position and have relevant experience.',
         location: 'Banay-Banay, San Jose',
-        email: 'alicejohnson@yahoo.com'),
+        email: 'jrobles@gmail.com'),
     Applicant(
-        name: 'Bob Smith',
+        name: 'Sheena Catacutan',
         status: 'Pending',
-        image: 'asset/images/applicant2.jpg',
+        image: 'asset/images/chatemp5.jpg',
         message:
             'Looking forward to discussing my qualifications for this role.',
         location: 'Galamay-Amo, San Jose',
-        email: 'bobsmith@gmail.com'),
+        email: 'CatacutanSheena@gmail.com'),
     Applicant(
-        name: 'Charlie Davis',
+        name: 'Mary Loi Ricalde',
         status: 'Accepted',
-        image: 'asset/images/applicant3.jpg',
+        image: 'asset/images/chatemp3.jpg',
         message: 'Excited to contribute to your team and grow in this role.',
         location: 'Abra, San Jose',
-        email: 'charliedavis22@yahoo.com'),
+        email: 'MLRicalde@gmail.com'),
   ];
 
   @override
@@ -274,7 +274,7 @@ class _JobApplicantsPageState extends State<JobApplicantsPage> {
           child: GestureDetector(
             onTap: () => _showApplicantDetails(context, applicant),
             child: CircleAvatar(
-              radius: 20,
+              radius: 25,
               backgroundImage: AssetImage(applicant.image),
             ),
           ),

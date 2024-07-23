@@ -126,14 +126,17 @@ class EmployerSide extends StatelessWidget {
               ),
             ),
           ]),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const EmployerAppBar(),
-              const SearchCard(),
-              const TagList(),
-              JobList(),
-            ],
+          SingleChildScrollView(
+            // Add SingleChildScrollView here
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const EmployerAppBar(),
+                const SearchCard(),
+                const TagList(),
+                JobList(),
+              ],
+            ),
           )
         ],
       ),
