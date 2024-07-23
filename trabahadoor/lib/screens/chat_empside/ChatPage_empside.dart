@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trabahadoor/screens/chat/widgets/ChatBottomSheet.dart';
-import 'package:trabahadoor/screens/chat/widgets/ChatSample.dart';
+import 'package:trabahadoor/screens/chat_empside/widgets/ChatBottomSheet_empside.dart';
+import 'package:trabahadoor/screens/chat_empside/widgets/ChatSample_empside.dart';
 
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key});

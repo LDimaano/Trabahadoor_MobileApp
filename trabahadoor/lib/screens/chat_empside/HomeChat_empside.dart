@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trabahadoor/screens/chat/widgets/ActiveChats.dart';
-import 'package:trabahadoor/screens/chat/widgets/RecentChats.dart';
+import 'package:trabahadoor/screens/chat_empside/widgets/ActiveChats_empside.dart';
+import 'package:trabahadoor/screens/chat_empside/widgets/RecentChats_empside.dart';
 
 class Homechat extends StatelessWidget {
   const Homechat({super.key});
