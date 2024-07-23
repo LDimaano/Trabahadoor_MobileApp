@@ -173,16 +173,16 @@ class _AddJobFormState extends State<AddJobForm> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white, // Background color of the container
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(25.0)), // Rounded corners
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
         ),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Card(
-            color: Colors.white, // Background color of the card
+            color: Colors.white,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0), // Rounded corners
+              borderRadius: BorderRadius.circular(15.0),
             ),
             elevation: 5,
             child: Padding(

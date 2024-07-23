@@ -5,7 +5,7 @@ class HomeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color blueColor = const Color.fromRGBO(3, 63, 118, 1); // Define the blue color used in your theme
+    const Color blueColor = Color.fromRGBO(3, 63, 118, 1);
 
     return Container(
       padding: EdgeInsets.only(
@@ -13,13 +13,13 @@ class HomeAppBar extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 10), // Add small padding before the TrabahaDoor text
-          Text(
+          const SizedBox(height: 10),
+          const Text(
             'TrabahaDoor',
             style: TextStyle(
-              color: blueColor, // Apply the blue color
+              color: blueColor,
               fontWeight: FontWeight.bold,
-              fontSize: 26, // Adjust font size as needed
+              fontSize: 26,
             ),
           ),
           const SizedBox(height: 10),

@@ -39,17 +39,17 @@ class LoginPage extends StatelessWidget {
                     Image.asset(
                       'asset/images/login-img.png',
                       height: 80, // Adjust the height as needed
-                      width: 80,  // Adjust the width as needed
+                      width: 80, // Adjust the width as needed
                     ),
                     const SizedBox(
                       height: 20,
                     ),
                     const Text(
                       "Login to TrabahaDoor",
-                      style:
-                          TextStyle(fontSize: 30,
-                           fontWeight: FontWeight.bold,
-                           color: Color.fromRGBO(3, 63, 118, 1)),
+                      style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromRGBO(3, 63, 118, 1)),
                     ),
                     const SizedBox(
                       height: 20,
@@ -85,7 +85,7 @@ class LoginPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50),
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 15),
-                      minimumSize: Size(double.infinity, 60),
+                      minimumSize: const Size(double.infinity, 60),
                     ),
                     child: const Text(
                       "Login",
