@@ -188,7 +188,7 @@ class JobDetailemp extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                         )),
                     onPressed: () {},
-                    child: const Text('Apply Now!'),
+                    child: const Text('Message'),
                   ),
                 )
               ],
