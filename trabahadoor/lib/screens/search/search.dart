@@ -10,7 +10,7 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromRGBO(254, 247, 255, 1.0),
+        backgroundColor: const Color.fromRGBO(254, 247, 255, 1.0),
         resizeToAvoidBottomInset: false,
         body: Stack(
           children: [

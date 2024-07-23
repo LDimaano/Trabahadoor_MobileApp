@@ -20,8 +20,8 @@ class LoginSignup extends StatelessWidget {
               Column(
                 children: <Widget>[
                   Image.asset(
-                    "asset/images/login-img.png", // Path to your logo
-                    height: 100, // Adjust the size as needed
+                    "asset/images/login-img.png",
+                    height: 100,
                     width: 100,
                   ),
                   const SizedBox(height: 20),
@@ -55,8 +55,10 @@ class LoginSignup extends StatelessWidget {
                     minWidth: double.infinity,
                     height: 60,
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginPage()));
                     },
                     shape: RoundedRectangleBorder(
                         side: const BorderSide(color: Colors.black),
@@ -75,7 +77,7 @@ class LoginSignup extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SignupPage()));
+                              builder: (context) => const SignupPage()));
                     },
                     color: Theme.of(context).primaryColor,
                     shape: RoundedRectangleBorder(

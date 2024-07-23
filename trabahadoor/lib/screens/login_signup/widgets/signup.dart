@@ -3,6 +3,8 @@ import 'package:trabahadoor/screens/login_signup/widgets/signup_jobseeker.dart';
 import 'package:trabahadoor/screens/login_signup/widgets/signup_employer.dart';
 
 class JobseekerPage extends StatelessWidget {
+  const JobseekerPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +25,8 @@ class JobseekerPage extends StatelessWidget {
 }
 
 class EmployerPage extends StatelessWidget {
+  const EmployerPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +47,7 @@ class EmployerPage extends StatelessWidget {
 }
 
 class SignupPage extends StatefulWidget {
-  const SignupPage({Key? key}) : super(key: key);
+  const SignupPage({super.key});
 
   @override
   _SignupPageState createState() => _SignupPageState();
@@ -52,6 +56,7 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   final _formKey = GlobalKey<FormState>();
   String? _userType;
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -104,8 +109,17 @@ class _SignupPageState extends State<SignupPage> {
                   children: <Widget>[
                     inputFile(label: "Username"),
                     inputFile(label: "Email"),
-                    inputFile(label: "Password", obscureText: true),
-                    inputFile(label: "Confirm Password", obscureText: true),
+                    inputFile(
+                        label: "Password",
+                        obscureText: true,
+                        isPassword: true,
+                        controller: _passwordController),
+                    inputFile(
+                      label: "Confirm Password",
+                      obscureText: true,
+                      isPassword: true,
+                      confirmPasswordController: _passwordController,
+                    ),
                   ],
                 ),
                 Column(
@@ -175,7 +189,8 @@ class _SignupPageState extends State<SignupPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SignUpForm_employer()),
+                                builder: (context) =>
+                                    const SignUpForm_employer()),
                           );
                         }
                       }
@@ -215,7 +230,12 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 
-  Widget inputFile({required String label, bool obscureText = false}) {
+  Widget inputFile(
+      {required String label,
+      bool obscureText = false,
+      bool isPassword = false,
+      TextEditingController? controller,
+      TextEditingController? confirmPasswordController}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -228,6 +248,7 @@ class _SignupPageState extends State<SignupPage> {
           height: 5,
         ),
         TextFormField(
+          controller: controller,
           obscureText: obscureText,
           decoration: const InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -243,8 +264,14 @@ class _SignupPageState extends State<SignupPage> {
               return 'Please enter your $label';
             }
             if (label == 'Email' &&
-                !RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+                !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                    .hasMatch(value)) {
               return 'Please enter a valid email address';
+            }
+            if (isPassword && label == 'Confirm Password') {
+              if (value != confirmPasswordController!.text) {
+                return 'Passwords do not match';
+              }
             }
             return null;
           },

@@ -99,10 +99,10 @@ class _SignUpFormJobseekerState extends State<SignUpFormJobseeker> {
                 ElevatedButton(
                   onPressed: addSkill,
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
+                    backgroundColor: WidgetStateProperty.all<Color>(
                         Theme.of(context).primaryColor),
                     foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.white),
+                        WidgetStateProperty.all<Color>(Colors.white),
                   ),
                   child: const Text('Add Another Skill'),
                 ),

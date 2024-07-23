@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -184,7 +184,7 @@ class ProfilePage extends StatelessWidget {
 }
 
 class ApplicationStatusPage extends StatelessWidget {
-  const ApplicationStatusPage({Key? key}) : super(key: key);
+  const ApplicationStatusPage({super.key});
 
   @override
   Widget build(BuildContext context) {
