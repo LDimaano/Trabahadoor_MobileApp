@@ -180,16 +180,25 @@ class _JobApplicantsPageState extends State<JobApplicantsPage> {
       name: 'Alice Johnson',
       status: 'Scheduled',
       image: 'asset/images/applicant1.jpg',
+      message: 'I am very interested in this position and have relevant experience.',
+      location: 'Banay-Banay, San Jose',
+      email: 'alicejohnson@yahoo.com'
     ),
     Applicant(
       name: 'Bob Smith',
       status: 'Pending',
       image: 'asset/images/applicant2.jpg',
+      message: 'Looking forward to discussing my qualifications for this role.',
+      location: 'Galamay-Amo, San Jose',
+      email: 'bobsmith@gmail.com'
     ),
     Applicant(
       name: 'Charlie Davis',
       status: 'Accepted',
       image: 'asset/images/applicant3.jpg',
+      message: 'Excited to contribute to your team and grow in this role.',
+      location: 'Abra, San Jose',
+      email: 'charliedavis22@yahoo.com'
     ),
   ];
 
@@ -263,17 +272,23 @@ class _JobApplicantsPageState extends State<JobApplicantsPage> {
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            radius: 20,
-            backgroundImage: AssetImage(applicant.image),
+          child: GestureDetector(
+            onTap: () => _showApplicantDetails(context, applicant),
+            child: CircleAvatar(
+              radius: 20,
+              backgroundImage: AssetImage(applicant.image),
+            ),
           ),
         ),
         Flexible(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(
-              applicant.name,
-              overflow: TextOverflow.ellipsis, // Prevent overflow
+            child: GestureDetector(
+              onTap: () => _showApplicantDetails(context, applicant),
+              child: Text(
+                applicant.name,
+                overflow: TextOverflow.ellipsis, // Prevent overflow
+              ),
             ),
           ),
         ),
@@ -315,6 +330,108 @@ class _JobApplicantsPageState extends State<JobApplicantsPage> {
       ],
     );
   }
+void _showApplicantDetails(BuildContext context, Applicant applicant) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text(applicant.name),
+        content: ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: 400), // Adjust max width as needed
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: CircleAvatar(
+                    radius: 40,
+                    backgroundImage: AssetImage(applicant.image),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  'Status: ${applicant.status}',
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    const Icon(Icons.message, color: Colors.grey),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        applicant.message,
+                        style: const TextStyle(fontSize: 14),
+                        maxLines: 3, // Limits the number of lines
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    const Icon(Icons.email, color: Colors.grey),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        applicant.email,
+                        style: const TextStyle(fontSize: 14),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    const Icon(Icons.location_on, color: Colors.grey),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        applicant.location,
+                        style: const TextStyle(fontSize: 14),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                TextButton.icon(
+                  onPressed: () {
+                    // Implement the action to see attached files here
+                    Navigator.of(context).pop(); // Close the current dialog
+                    // Implement file viewing action
+                  },
+                  icon: const Icon(Icons.attach_file, color: Colors.white),
+                  label: const Text(
+                    'See Attached Files',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  style: TextButton.styleFrom(
+                    backgroundColor: Color.fromRGBO(3, 63, 118, 1),
+                    foregroundColor: Colors.white,
+                    minimumSize: Size.fromHeight(40),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text(
+              'Close',
+              style: TextStyle(color: Color.fromRGBO(3, 63, 118, 1)),
+            ),
+          ),
+        ],
+      );
+    },
+  );
+}
 
   IconData _getStatusIcon(String status) {
     switch (status) {
@@ -347,10 +464,17 @@ class Applicant {
   final String name;
   String status;
   final String image;
+  final String message;
+  final String email; // Added email field
+  final String location; // Added location field
 
   Applicant({
     required this.name,
     required this.status,
     required this.image,
+    required this.message,
+    required this.email, // Initialize email
+    required this.location, // Initialize location
   });
 }
+
