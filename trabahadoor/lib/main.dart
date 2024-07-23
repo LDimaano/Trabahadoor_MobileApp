@@ -26,6 +26,6 @@ class MyApp extends StatelessWidget {
           hintColor: const Color(0x0ffed408),
           textTheme: GoogleFonts.poppinsTextTheme(),
         ),
-        home: const MainScreenemp());
+        home: const MainScreen());
   }
 }
