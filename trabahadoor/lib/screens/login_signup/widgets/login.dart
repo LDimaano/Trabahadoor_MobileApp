@@ -77,7 +77,7 @@ class LoginPage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => MainScreen()));
+                                builder: (context) => const MainScreen()));
                       },
                       color: Theme.of(context).primaryColor,
                       elevation: 0,

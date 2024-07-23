@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trabahadoor/screens/login_signup/login_signup.dart';
 
 class SignUpForm_employer extends StatefulWidget {
-  const SignUpForm_employer({Key? key}) : super(key: key);
+  const SignUpForm_employer({super.key});
 
   @override
   _SignUpForm_employerState createState() => _SignUpForm_employerState();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trabahadoor/screens/chat/widgets/ChatBottomSheet.dart';
-import 'package:trabahadoor/screens/chat/widgets/ChatSample.dart';
+import 'package:trabahadoor/screens/chat_empside/widgets/ChatBottomSheet_empside.dart';
+import 'package:trabahadoor/screens/chat_empside/widgets/ChatSample_empside.dart';
 
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key});
@@ -19,7 +19,7 @@ class ChatPage extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(30),
                   child: Image.asset(
-                    "asset/images/chat1.jpg",
+                    "asset/images/chatemp1.jpg",
                     height: 45,
                     width: 45,
                   ),
@@ -27,8 +27,8 @@ class ChatPage extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.only(left: 10),
                   child: Text(
-                    "Jihyo Park",
-                    style: TextStyle(color: Colors.black),
+                    "Jhoanna Robles",
+                    style: TextStyle(color: Colors.black, fontSize: 17),
                   ),
                 ),
               ],

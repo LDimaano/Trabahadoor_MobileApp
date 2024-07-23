@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+class ProfilePage_emp extends StatelessWidget {
+  const ProfilePage_emp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,13 +31,13 @@ class ProfilePage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            'Jisoo',
+                            'Hoshi',
                             style: TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 5),
                           const Text(
-                            'Jisoo@gmail.com',
+                            'Hoshi@gmail.com',
                             style: TextStyle(color: Colors.grey),
                           ),
                           const SizedBox(height: 20),
@@ -112,7 +112,7 @@ class ProfilePage extends StatelessWidget {
       ),
       child: const CircleAvatar(
         radius: 50,
-        backgroundImage: AssetImage('asset/images/profile.jpg'),
+        backgroundImage: AssetImage('asset/images/profile_emp.jpg'),
       ),
     );
   }

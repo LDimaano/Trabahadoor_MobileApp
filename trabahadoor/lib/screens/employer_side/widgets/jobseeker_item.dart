@@ -8,7 +8,7 @@ class JobItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 270,
+      width: 330,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
@@ -25,12 +25,18 @@ class JobItem extends StatelessWidget {
                   Container(
                     height: 40,
                     width: 40,
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(2),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.grey.withOpacity(0.1),
                     ),
-                    child: Image.asset(job.logoUrl),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        job.logoUrl,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     width: 10,
