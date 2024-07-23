@@ -149,12 +149,7 @@ void _showAddJobModal(BuildContext context) {
       borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
     ),
     builder: (BuildContext context) {
-      return Padding(
-        padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom,
-        ),
-        child: const AddJobForm(),
-      );
+      return const AddJobForm();
     },
   );
 }
@@ -177,173 +172,182 @@ class _AddJobFormState extends State<AddJobForm> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(16.0),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white, // Background color of the container
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(25.0)), // Rounded corners
         ),
-        elevation: 5,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+          child: Card(
+            color: Colors.white, // Background color of the card
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0), // Rounded corners
+            ),
+            elevation: 5,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(
-                      Icons.work,
-                      color: Color.fromRGBO(3, 63, 118, 1),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.work,
+                          color: Color.fromRGBO(3, 63, 118, 1),
+                        ),
+                        SizedBox(width: 8),
+                        Text(
+                          'Add a Job Position',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromRGBO(3, 63, 118, 1),
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(width: 8),
-                    Text(
-                      'Add a Job Position',
+                    const SizedBox(height: 16),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: 'Job Title',
+                        border: OutlineInputBorder(),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter the job title';
+                        }
+                        return null;
+                      },
+                      onSaved: (value) {
+                        _title = value!;
+                      },
+                    ),
+                    const SizedBox(height: 16),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: 'Location',
+                        border: OutlineInputBorder(),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter the job location';
+                        }
+                        return null;
+                      },
+                      onSaved: (value) {
+                        _location = value!;
+                      },
+                    ),
+                    const SizedBox(height: 16),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: 'Position',
+                        border: OutlineInputBorder(),
+                      ),
+                      maxLines: 1,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter the job position';
+                        }
+                        return null;
+                      },
+                      onSaved: (value) {
+                        _position = value!;
+                      },
+                    ),
+                    const SizedBox(height: 16),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: 'Requirements',
+                        border: OutlineInputBorder(),
+                      ),
+                      maxLines: 2,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter the job requirements';
+                        }
+                        return null;
+                      },
+                      onSaved: (value) {
+                        _requirements = value!;
+                      },
+                    ),
+                    const SizedBox(height: 16),
+                    const Divider(),
+                    const Text(
+                      'Job Type',
                       style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromRGBO(3, 63, 118, 1),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey),
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ListTile(
+                            title: const Text('Full Time'),
+                            leading: Radio<String>(
+                              value: 'Full Time',
+                              groupValue: _jobType,
+                              onChanged: (value) {
+                                setState(() {
+                                  _jobType = value!;
+                                });
+                              },
+                              activeColor: const Color.fromRGBO(3, 63, 118, 1),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: ListTile(
+                            title: const Text('Part Time'),
+                            leading: Radio<String>(
+                              value: 'Part Time',
+                              groupValue: _jobType,
+                              onChanged: (value) {
+                                setState(() {
+                                  _jobType = value!;
+                                });
+                              },
+                              activeColor: const Color.fromRGBO(3, 63, 118, 1),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          _formKey.currentState!.save();
+                          final newJob = (
+                            title: _title,
+                            location: _location,
+                            position: _position,
+                            requirements: _requirements,
+                            jobType: _jobType,
+                          );
+                          Navigator.pop(context, newJob);
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromRGBO(3, 63, 118, 1),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 50, vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
+                      child: const Text('Add Job',
+                          style: TextStyle(fontSize: 16, color: Colors.white)),
                     ),
                   ],
                 ),
-                const SizedBox(height: 16),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: 'Job Title',
-                    border: OutlineInputBorder(),
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter the job title';
-                    }
-                    return null;
-                  },
-                  onSaved: (value) {
-                    _title = value!;
-                  },
-                ),
-                const SizedBox(height: 16),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: 'Location',
-                    border: OutlineInputBorder(),
-                  ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter the job location';
-                    }
-                    return null;
-                  },
-                  onSaved: (value) {
-                    _location = value!;
-                  },
-                ),
-                const SizedBox(height: 16),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: 'Position',
-                    border: OutlineInputBorder(),
-                  ),
-                  maxLines: 1,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter the job position';
-                    }
-                    return null;
-                  },
-                  onSaved: (value) {
-                    _position = value!;
-                  },
-                ),
-                const SizedBox(height: 16),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    labelText: 'Requirements',
-                    border: OutlineInputBorder(),
-                  ),
-                  maxLines: 2,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter the job requirements';
-                    }
-                    return null;
-                  },
-                  onSaved: (value) {
-                    _requirements = value!;
-                  },
-                ),
-                const SizedBox(height: 16),
-                const Divider(),
-                const Text(
-                  'Job Type',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey),
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ListTile(
-                        title: const Text('Full Time'),
-                        leading: Radio<String>(
-                          value: 'Full Time',
-                          groupValue: _jobType,
-                          onChanged: (value) {
-                            setState(() {
-                              _jobType = value!;
-                            });
-                          },
-                          activeColor: const Color.fromRGBO(3, 63, 118, 1),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: ListTile(
-                        title: const Text('Part Time'),
-                        leading: Radio<String>(
-                          value: 'Part Time',
-                          groupValue: _jobType,
-                          onChanged: (value) {
-                            setState(() {
-                              _jobType = value!;
-                            });
-                          },
-                          activeColor: const Color.fromRGBO(3, 63, 118, 1),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      _formKey.currentState!.save();
-                      final newJob = (
-                        title: _title,
-                        location: _location,
-                        position: _position,
-                        requirements: _requirements,
-                        jobType: _jobType,
-                      );
-                      Navigator.pop(context, newJob);
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromRGBO(3, 63, 118, 1),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 50, vertical: 15),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: const Text('Add Job',
-                      style: TextStyle(fontSize: 16, color: Colors.white)),
-                ),
-              ],
+              ),
             ),
           ),
         ),

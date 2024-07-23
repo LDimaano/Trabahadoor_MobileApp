@@ -31,66 +31,61 @@ class ProfilePage_emp extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            'Hoshi',
+                            'Tech Solutions Inc.',
                             style: TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 5),
-                          const Text(
-                            'Hoshi@gmail.com',
-                            style: TextStyle(color: Colors.grey),
+                          Row(
+                            children: [
+                              Icon(Icons.email, color: Colors.grey),
+                              const SizedBox(width: 8),
+                              const Text(
+                                'info@techsolutions.com',
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 5),
+                          Row(
+                            children: [
+                              Icon(Icons.location_on, color: Colors.grey),
+                              const SizedBox(width: 8),
+                              const Text(
+                                '123 Tech Street, Silicon Valley, CA',
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                            ],
                           ),
                           const SizedBox(height: 20),
-                          Center(
-                            child: ElevatedButton.icon(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const ApplicationStatusPage(),
-                                  ),
-                                );
-                              },
-                              icon: const Icon(Icons.visibility,
-                                  size: 20, color: Colors.white),
-                              label: const Text(
-                                'View Application Status',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Theme.of(context).primaryColor,
-                                shape: const StadiumBorder(),
-                              ),
-                            ),
-                          ),
+                          // Removed View applicants button
                         ],
                       ),
                     ],
                   ),
                   const SizedBox(height: 30),
-                  _buildSectionTitle('Work Experience'),
-                  _buildExperienceItem(
-                    'Systems Analyst',
-                    'Company ABC',
-                    'January 2018 - December 2020',
-                    'Led a team of analysts in developing and implementing systems for data management.',
+                  _buildSectionTitle('Company Overview'),
+                  const Text(
+                    'Tech Solutions Inc. is a leading provider of innovative technology solutions. We specialize in software development, IT consulting, and cloud services to help businesses achieve their goals through digital transformation.',
+                    style: TextStyle(fontSize: 16),
                   ),
-                  _buildExperienceItem(
-                    'Full-Stack Developer',
-                    'Tech Solutions Inc.',
-                    'May 2016 - December 2017',
-                    'Designed and developed scalable web applications using React.js and Node.js.',
+                  const SizedBox(height: 30),
+                  _buildSectionTitle('Job Listings'),
+                  _buildJobListing(
+                    context,
+                    'Software Engineer',
+                    'We are looking for a skilled software engineer to join our team.',
                   ),
-                  _buildExperienceItem(
-                    'Mobile App Developer',
-                    'MobileTech Ltd.',
-                    'August 2014 - April 2016',
-                    'Created native Android applications that achieved 1 million downloads on Google Play.',
+                  _buildJobListing(
+                    context,
+                    'Project Manager',
+                    'Seeking an experienced project manager to lead various projects.',
                   ),
-                  const SizedBox(height: 20),
-                  _buildSectionTitle('Skills'),
-                  _buildSkillList(),
+                  _buildJobListing(
+                    context,
+                    'UI/UX Designer',
+                    'Looking for a creative UI/UX designer to design web and mobile applications.',
+                  ),
                 ],
               ),
             ),
@@ -112,7 +107,7 @@ class ProfilePage_emp extends StatelessWidget {
       ),
       child: const CircleAvatar(
         radius: 50,
-        backgroundImage: AssetImage('asset/images/profile_emp.jpg'),
+        backgroundImage: AssetImage('asset/images/Alorica.png'),
       ),
     );
   }
@@ -127,89 +122,83 @@ class ProfilePage_emp extends StatelessWidget {
     );
   }
 
-  Widget _buildSkillList() {
-    List<String> skills = [
-      'Technical Proficiency',
-      'Communication Skills',
-      'Adaptability and Continuous Learning',
-      'Project Management',
-      'Problem-Solving Abilities',
-    ];
-
-    return ListView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: skills.length,
-      itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 1),
-          child: ListTile(
-            dense: true,
-            visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
-            leading: const Icon(Icons.circle, size: 10),
-            contentPadding: EdgeInsets.zero,
-            title: Text(
-              skills[index],
-              style: const TextStyle(fontSize: 14),
-            ),
+  Widget _buildJobListing(BuildContext context, String title, String description) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => JobApplicantsPage(jobTitle: title),
           ),
         );
       },
-    );
-  }
-
-  Widget _buildExperienceItem(
-      String title, String company, String duration, String details) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: ListTile(
-        contentPadding: EdgeInsets.zero,
-        title: Text(
-          title,
-          style: const TextStyle(fontWeight: FontWeight.bold),
+      child: Card(
+        color: const Color.fromRGBO(254, 247, 255, 1.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
         ),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(company),
-            const SizedBox(height: 2),
-            Text(duration),
-            const SizedBox(height: 2),
-            Text('- $details'),
-          ],
+        elevation: 3,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 18),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(description),
+                  ],
+                ),
+              ),
+              const Icon(Icons.arrow_forward_ios, color: Colors.grey),
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-class ApplicationStatusPage extends StatelessWidget {
-  const ApplicationStatusPage({super.key});
+class JobApplicantsPage extends StatefulWidget {
+  final String jobTitle;
+
+  const JobApplicantsPage({super.key, required this.jobTitle});
+
+  @override
+  _JobApplicantsPageState createState() => _JobApplicantsPageState();
+}
+
+class _JobApplicantsPageState extends State<JobApplicantsPage> {
+  List<Applicant> applicants = [
+    Applicant(
+      name: 'Alice Johnson',
+      status: 'Scheduled',
+      image: 'asset/images/applicant1.jpg',
+    ),
+    Applicant(
+      name: 'Bob Smith',
+      status: 'Pending',
+      image: 'asset/images/applicant2.jpg',
+    ),
+    Applicant(
+      name: 'Charlie Davis',
+      status: 'Accepted',
+      image: 'asset/images/applicant3.jpg',
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    List<ApplicationStatus> statuses = [
-      ApplicationStatus(
-        jobTitle: 'Systems Analyst',
-        companyLogo: 'asset/images/Swift.jpeg',
-        status: 'Interview Scheduled',
-      ),
-      ApplicationStatus(
-        jobTitle: 'Full-Stack Developer',
-        companyLogo: 'asset/images/Optitech.png',
-        status: 'Pending',
-      ),
-      ApplicationStatus(
-        jobTitle: 'Mobile App Developer',
-        companyLogo: 'asset/images/Alorica.png',
-        status: 'Accepted',
-      ),
-    ];
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Application Status',
-            style: TextStyle(color: Colors.white)),
+        title: Text('${widget.jobTitle} Applicants',
+            style: const TextStyle(color: Colors.white)),
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.white),
@@ -225,9 +214,10 @@ class ApplicationStatusPage extends StatelessWidget {
                   horizontalInside:
                       BorderSide(color: Colors.grey.withOpacity(0.5), width: 1),
                 ),
-                columnWidths: const {
-                  0: FlexColumnWidth(),
-                  1: FixedColumnWidth(150),
+                columnWidths: {
+                  0: FixedColumnWidth(120), // Image column width
+                  1: FlexColumnWidth(200), // Name column width
+                  2: FixedColumnWidth(150), // Status column width
                 },
                 children: [
                   const TableRow(
@@ -235,7 +225,15 @@ class ApplicationStatusPage extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.all(12.0),
                         child: Text(
-                          'Job',
+                          'Applicant',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(12.0),
+                        child: Text(
+                          '',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 16),
                         ),
@@ -250,7 +248,7 @@ class ApplicationStatusPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  for (var status in statuses) _buildTableRow(status),
+                  for (var applicant in applicants) _buildTableRow(applicant),
                 ],
               ),
             ],
@@ -260,81 +258,99 @@ class ApplicationStatusPage extends StatelessWidget {
     );
   }
 
-  TableRow _buildTableRow(ApplicationStatus status) {
-    Color getStatusColor(String status) {
-      switch (status) {
-        case 'Interview Scheduled':
-          return Colors.orange;
-        case 'Pending':
-          return Colors.blue;
-        case 'Accepted':
-          return Colors.green;
-        default:
-          return Colors.grey;
-      }
-    }
-
-    IconData getStatusIcon(String status) {
-      switch (status) {
-        case 'Interview Scheduled':
-          return Icons.schedule;
-        case 'Pending':
-          return Icons.hourglass_empty;
-        case 'Accepted':
-          return Icons.check_circle;
-        default:
-          return Icons.help;
-      }
-    }
-
+  TableRow _buildTableRow(Applicant applicant) {
     return TableRow(
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(4),
-                child: Image.asset(
-                  status.companyLogo,
-                  height: 40,
-                  width: 40,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(child: Text(status.jobTitle)),
-            ],
+          child: CircleAvatar(
+            radius: 20,
+            backgroundImage: AssetImage(applicant.image),
+          ),
+        ),
+        Flexible(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              applicant.name,
+              overflow: TextOverflow.ellipsis, // Prevent overflow
+            ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Icon(getStatusIcon(status.status),
-                  color: getStatusColor(status.status)),
-              const SizedBox(width: 5),
-              Expanded(
-                child: Text(status.status,
-                    style: TextStyle(color: getStatusColor(status.status))),
-              ),
-            ],
+          child: DropdownButton<String>(
+            value: applicant.status,
+            icon: const Icon(Icons.arrow_drop_down),
+            iconSize: 24,
+            elevation: 16,
+            style: const TextStyle(color: Colors.black),
+            underline: Container(
+              height: 2,
+              color: Colors.grey.withOpacity(0.5),
+            ),
+            onChanged: (String? newValue) {
+              setState(() {
+                applicant.status = newValue!;
+              });
+            },
+            items: <String>['Scheduled', 'Pending', 'Accepted']
+                .map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Row(
+                  children: [
+                    Icon(
+                      _getStatusIcon(value),
+                      color: _getStatusColor(value),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(value),
+                  ],
+                ),
+              );
+            }).toList(),
           ),
         ),
       ],
     );
   }
+
+  IconData _getStatusIcon(String status) {
+    switch (status) {
+      case 'Scheduled':
+        return Icons.schedule;
+      case 'Pending':
+        return Icons.hourglass_empty;
+      case 'Accepted':
+        return Icons.check_circle;
+      default:
+        return Icons.help;
+    }
+  }
+
+  Color _getStatusColor(String status) {
+    switch (status) {
+      case 'Scheduled':
+        return Colors.orange;
+      case 'Pending':
+        return Colors.blue;
+      case 'Accepted':
+        return Colors.green;
+      default:
+        return Colors.grey;
+    }
+  }
 }
 
-class ApplicationStatus {
-  final String jobTitle;
-  final String companyLogo;
-  final String status;
+class Applicant {
+  final String name;
+  String status;
+  final String image;
 
-  ApplicationStatus({
-    required this.jobTitle,
-    required this.companyLogo,
+  Applicant({
+    required this.name,
     required this.status,
+    required this.image,
   });
 }
