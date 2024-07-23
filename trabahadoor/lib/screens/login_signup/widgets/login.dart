@@ -35,16 +35,27 @@ class LoginPage extends StatelessWidget {
               children: <Widget>[
                 Column(
                   children: <Widget>[
+                    // Add the logo image
+                    Image.asset(
+                      'asset/images/login-img.png',
+                      height: 80, // Adjust the height as needed
+                      width: 80,  // Adjust the width as needed
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     const Text(
-                      "Login",
+                      "Login to TrabahaDoor",
                       style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 30,
+                           fontWeight: FontWeight.bold,
+                           color: Color.fromRGBO(3, 63, 118, 1)),
                     ),
                     const SizedBox(
                       height: 20,
                     ),
                     Text(
-                      "Login to your account",
+                      "Opening Opportunities for all",
                       style: TextStyle(fontSize: 15, color: Colors.grey[700]),
                     )
                   ],
@@ -60,37 +71,28 @@ class LoginPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: Container(
-                    padding: const EdgeInsets.only(top: 3, left: 3),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        border: const Border(
-                          bottom: BorderSide(color: Colors.black),
-                          top: BorderSide(color: Colors.black),
-                          left: BorderSide(color: Colors.black),
-                          right: BorderSide(color: Colors.black),
-                        )),
-                    child: MaterialButton(
-                      minWidth: double.infinity,
-                      height: 60,
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const MainScreen()));
-                      },
-                      color: Theme.of(context).primaryColor,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MainScreen()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).primaryColor,
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
-                      child: const Text(
-                        "Login",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                          color: Colors.white,
-                        ),
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      minimumSize: Size(double.infinity, 60),
+                    ),
+                    child: const Text(
+                      "Login",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -108,15 +110,6 @@ class LoginPage extends StatelessWidget {
                     )
                   ],
                 ),
-                Container(
-                  padding: const EdgeInsets.only(top: 100),
-                  height: 200,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("asset/images/background.png"),
-                        fit: BoxFit.fitHeight),
-                  ),
-                )
               ],
             ))
           ],
