@@ -6,6 +6,94 @@ class JobDetail extends StatelessWidget {
   final Job job;
   const JobDetail(this.job, {super.key});
 
+  // Function to show the application dialog
+  void _showApplicationDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Colors.white, // Set modal background color to white
+          title: const Text('Send an Application', style: TextStyle(fontWeight: FontWeight.bold)),
+          content: SizedBox(
+            width: 400, // Adjust width here
+            height: 320,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Application Message: ',
+                  style: TextStyle(fontSize: 16),
+                ),
+                const SizedBox(height: 10),
+                TextField(
+                  maxLines: 4,
+                  decoration: InputDecoration(
+                    hintText: 'Enter your message here...',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    // No functionality for file picker
+                    print('Attach Files button pressed');
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(150, 30), // Set minimum size to make button smaller
+                    backgroundColor: Colors.white, // Button background color
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      side: BorderSide.none, // Remove border
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 10), // Adjust horizontal padding
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.attach_file, color: Theme.of(context).primaryColor, size: 16), // Adjust icon size and color
+                      const SizedBox(width: 5), // Reduce spacing between icon and text
+                      Text(
+                        'Attach Files',
+                        style: TextStyle(
+                          color: const Color.fromRGBO(3, 63, 118, 1), // Blue RGBO color for text
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.black, // Text color for button
+              ),
+              child: const Text('Cancel'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Handle apply logic here
+                Navigator.pop(context);
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).primaryColor, // Background color of button
+                foregroundColor: Colors.white, // Text color for button
+              ),
+              child: const Text('Confirm Application'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -118,17 +206,21 @@ class JobDetail extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 25),
                   height: 45,
-                  width: double.maxFinite,
+                  width: double.infinity,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         elevation: 0,
                         backgroundColor: Theme.of(context).primaryColor,
-                        foregroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         )),
-                    onPressed: () {},
-                    child: const Text('Apply Now!'),
+                    onPressed: () {
+                      _showApplicationDialog(context); // Show the application dialog
+                    },
+                    child: const Text(
+                      'Apply Now!',
+                      style: TextStyle(color: Colors.white), // Text color inside the button
+                    ),
                   ),
                 )
               ],
