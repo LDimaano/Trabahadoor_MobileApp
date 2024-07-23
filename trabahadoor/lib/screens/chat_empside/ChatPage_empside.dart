@@ -19,7 +19,7 @@ class ChatPage extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(30),
                   child: Image.asset(
-                    "asset/images/chat1.jpg",
+                    "asset/images/chatemp1.jpg",
                     height: 45,
                     width: 45,
                   ),
@@ -27,8 +27,8 @@ class ChatPage extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.only(left: 10),
                   child: Text(
-                    "Jihyo Park",
-                    style: TextStyle(color: Colors.black),
+                    "Jhoanna Robles",
+                    style: TextStyle(color: Colors.black, fontSize: 17),
                   ),
                 ),
               ],
@@ -57,10 +57,6 @@ class ChatPage extends StatelessWidget {
         padding:
             const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 80),
         children: const [
-          ChatSample(),
-          ChatSample(),
-          ChatSample(),
-          ChatSample(),
           ChatSample(),
         ],
       ),

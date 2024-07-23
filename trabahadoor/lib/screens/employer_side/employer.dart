@@ -3,8 +3,9 @@ import 'package:trabahadoor/screens/employer_side/widgets/employer_app_bar.dart'
 import 'package:trabahadoor/screens/employer_side/widgets/jobseeker_list.dart';
 import 'package:trabahadoor/screens/employer_side/widgets/search_card.dart';
 import 'package:trabahadoor/screens/employer_side/widgets/tag_list.dart';
+import 'package:trabahadoor/screens/profile_emp/profile_emp.dart';
 import 'package:trabahadoor/screens/search_empside/search_emp.dart';
-import 'package:trabahadoor/screens/chat/HomeChat.dart';
+import 'package:trabahadoor/screens/chat_empside/HomeChat_empside.dart';
 
 class MainScreenemp extends StatefulWidget {
   const MainScreenemp({super.key});
@@ -19,9 +20,9 @@ class _MainScreenempState extends State<MainScreenemp> {
   static final List<Widget> _pages = <Widget>[
     const EmployerSide(),
     const SearchPage(),
-    const Center(child: const Text('')),
-    const Homechat(),
-    const EmployerSide(),
+    const Center(child: Text('')),
+    const Homechat_emp(),
+    const ProfilePage_emp(),
   ];
 
   void _onItemTapped(int index) {
@@ -35,7 +36,16 @@ class _MainScreenempState extends State<MainScreenemp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex],
+      body: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 300),
+        child: _pages[_selectedIndex],
+        transitionBuilder: (Widget child, Animation<double> animation) {
+          return FadeTransition(
+            opacity: animation,
+            child: child,
+          );
+        },
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color.fromRGBO(3, 63, 118, 1),

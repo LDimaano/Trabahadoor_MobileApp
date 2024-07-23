@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:trabahadoor/screens/chat_empside/widgets/ActiveChats_empside.dart';
 import 'package:trabahadoor/screens/chat_empside/widgets/RecentChats_empside.dart';
 
-class Homechat extends StatelessWidget {
-  const Homechat({super.key});
+class Homechat_emp extends StatelessWidget {
+  const Homechat_emp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,9 +59,11 @@ class Homechat extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 5),
-            ActiveChats(),
-            RecentChats(),
+            SizedBox(
+              height: MediaQuery.of(context).size.width * 0.01,
+            ),
+            const ActiveChats_emp(),
+            const RecentChats_emp(),
           ],
         ),
       ),

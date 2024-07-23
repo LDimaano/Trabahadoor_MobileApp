@@ -2,24 +2,26 @@ import 'package:flutter/material.dart';
 
 enum UserStatus { online, offline, doNotDisturb }
 
-class ActiveChats extends StatelessWidget {
-  const ActiveChats({super.key});
+class ActiveChats_emp extends StatelessWidget {
+  const ActiveChats_emp({super.key});
 
   @override
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> users = [
-      {"imagePath": "asset/images/chat1.jpg", "status": UserStatus.online},
-      {"imagePath": "asset/images/chat2.jpg", "status": UserStatus.offline},
+      {"imagePath": "asset/images/chatemp1.jpg", "status": UserStatus.online},
+      {"imagePath": "asset/images/chatemp2.jpg", "status": UserStatus.offline},
       {
-        "imagePath": "asset/images/chat3.jpg",
+        "imagePath": "asset/images/chatemp3.jpg",
         "status": UserStatus.doNotDisturb
       },
-      {"imagePath": "asset/images/chat4.jpg", "status": UserStatus.online},
-      {"imagePath": "asset/images/chat5.jpg", "status": UserStatus.offline},
+      {"imagePath": "asset/images/chatemp4.jpg", "status": UserStatus.online},
+      {"imagePath": "asset/images/chatemp5.jpg", "status": UserStatus.offline},
       {
-        "imagePath": "asset/images/chat6.jpg",
+        "imagePath": "asset/images/chatemp6.jpg",
         "status": UserStatus.doNotDisturb
       },
+      {"imagePath": "asset/images/chatemp7.jpg", "status": UserStatus.online},
+      {"imagePath": "asset/images/chatemp8.jpg", "status": UserStatus.online},
     ];
 
     return Padding(

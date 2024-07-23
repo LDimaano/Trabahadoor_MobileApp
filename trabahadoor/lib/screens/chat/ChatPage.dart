@@ -58,10 +58,6 @@ class ChatPage extends StatelessWidget {
             const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 80),
         children: const [
           ChatSample(),
-          ChatSample(),
-          ChatSample(),
-          ChatSample(),
-          ChatSample(),
         ],
       ),
       bottomSheet: const ChatBottomSheet(),

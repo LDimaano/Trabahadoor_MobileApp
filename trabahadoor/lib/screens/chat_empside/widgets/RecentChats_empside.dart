@@ -3,51 +3,75 @@ import 'package:trabahadoor/screens/chat_empside/ChatPage_empside.dart';
 
 enum UserStatus { online, offline, doNotDisturb }
 
-class RecentChats extends StatelessWidget {
-  const RecentChats({super.key});
+class RecentChats_emp extends StatelessWidget {
+  const RecentChats_emp({super.key});
 
   @override
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> chats = [
       {
-        "name": "Jihyo Park",
-        "message": "Scheduled Interview: 12:30pm",
+        "name": "Jhoanna Robles",
+        "message": "I would like to submit...",
         "time": "6:20",
         "count": "1",
-        "image": "asset/images/chat1.jpg",
+        "image": "asset/images/chatemp1.jpg",
         "status": UserStatus.online,
       },
       {
-        "name": "Jennie Kim",
-        "message": "Let's discuss my job offer for you.",
+        "name": "Mikhaela Lim",
+        "message": "I would like to submit...",
         "time": "11:15",
         "count": "3",
-        "image": "asset/images/chat2.jpg",
+        "image": "asset/images/chatemp2.jpg",
         "status": UserStatus.offline,
       },
       {
-        "name": "Taehyung Kim",
-        "message": "Job offer for you",
+        "name": "Mary Loi Ricalde",
+        "message": "Noted. Thank you!",
         "time": "10:00",
         "count": "2",
-        "image": "asset/images/chat3.jpg",
+        "image": "asset/images/chatemp3.jpg",
         "status": UserStatus.doNotDisturb,
       },
       {
-        "name": "Seokjin Kim",
-        "message": "I have job offers for you",
+        "name": "Stacey Sevilleja",
+        "message": "Thank you!",
         "time": "8:34",
         "count": "5",
-        "image": "asset/images/chat4.jpg",
+        "image": "asset/images/chatemp4.jpg",
         "status": UserStatus.online,
       },
       {
-        "name": "Yunjin Huh",
-        "message": "I have reviewed your resume",
+        "name": "Sheena Catacutan",
+        "message": "Noted. Thankyou!",
         "time": "11:59",
         "count": "2",
-        "image": "asset/images/chat5.jpg",
+        "image": "asset/images/chatemp5.jpg",
         "status": UserStatus.offline,
+      },
+      {
+        "name": "Gweneth Apuli",
+        "message": "Noted. Thankyou!",
+        "time": "11:59",
+        "count": "2",
+        "image": "asset/images/chatemp6.jpg",
+        "status": UserStatus.offline,
+      },
+      {
+        "name": "Nicolette Vergara",
+        "message": "Noted. Thankyou!",
+        "time": "4:36",
+        "count": "1",
+        "image": "asset/images/chatemp7.jpg",
+        "status": UserStatus.online,
+      },
+      {
+        "name": "Maraiah Arceta",
+        "message": "Noted. Thankyou!",
+        "time": "8:00",
+        "count": "2",
+        "image": "asset/images/chatemp8.jpg",
+        "status": UserStatus.online,
       },
     ];
 

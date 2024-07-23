@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trabahadoor/screens/home/home.dart';
 
 class SearchAppBar extends StatelessWidget {
   const SearchAppBar({super.key});
@@ -19,15 +20,16 @@ class SearchAppBar extends StatelessWidget {
               Navigator.of(context).pop();
             },
             child: Container(
-                padding: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
-                  shape: BoxShape.circle,
-                ),
-                child: const Icon(
-                  Icons.arrow_back,
-                  color: Colors.white,
-                )),
+              padding: const EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ),
+            ),
           ),
           Row(
             children: [

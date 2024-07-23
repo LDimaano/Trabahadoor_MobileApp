@@ -24,7 +24,7 @@ class ChatSample extends StatelessWidget {
                       offset: const Offset(3, 3),
                     ),
                   ]),
-                  child: const Text("Scheduled Interview: 12:30pm",
+                  child: const Text("I would like to submit my resume",
                       style: TextStyle(fontSize: 16)))),
         ),
         Container(
@@ -46,7 +46,7 @@ class ChatSample extends StatelessWidget {
                             offset: const Offset(0, 3),
                           ),
                         ]),
-                    child: const Text("Noted. Thank you!",
+                    child: const Text("Received. Thank you!",
                         style: TextStyle(fontSize: 16, color: Colors.white)))),
           ),
         ),

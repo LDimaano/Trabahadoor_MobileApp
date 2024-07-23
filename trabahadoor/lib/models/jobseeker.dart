@@ -25,26 +25,16 @@ class Jobseeker {
         'Technical Support Specialist (2019-2020)',
         'Customer Service Associate (2021-2022)',
       ]),
-      Jobseeker(
-          'Isabel Garcia',
-          'asset/images/emp2.jpg',
-          true,
-          'Marketing Manager',
-          'Balagtasin I, San Jose, Batangas',
-          'Full Time', [
+      Jobseeker('Isabel Garcia', 'asset/images/emp2.jpg', true,
+          'Marketing Manager', 'Aguila, San Jose, Batangas', 'Full Time', [
         'Communication Skills',
         'Strategic Thinking Skills',
         'Analytical Skills',
       ], [
         'Marketing Coordinator (2018-2020)'
       ]),
-      Jobseeker(
-          'Andres Bautista',
-          'asset/images/emp3.jpg',
-          true,
-          'Financial Analyst',
-          'Banaybanay II. San Jose, Batangas',
-          'Full Time', [
+      Jobseeker('Andres Bautista', 'asset/images/emp3.jpg', true,
+          'Financial Analyst', 'Taysan, San Jose, Batangas', 'Full Time', [
         'Communication Skills',
         'Analytical Skills',
         'Problem-Solving Skills',
@@ -52,7 +42,7 @@ class Jobseeker {
         'Junior Financial Analyst (2019-2020)'
       ]),
       Jobseeker('Josefa Aquino', 'asset/images/emp4.jpg', true,
-          'Sales Executive', 'Galamay-Amo, San Jose, Batangas', 'Full Time', [
+          'Sales Executive', 'Lumil, San Jose, Batangas', 'Full Time', [
         'Communication Skills',
         'Customer Relationship Management',
         'Problem-Solving',
@@ -65,7 +55,7 @@ class Jobseeker {
           'asset/images/emp5.jpg',
           false,
           'Software Developer',
-          'Bagong Pook, San Jose, Batangas',
+          'Tugtug, San Jose, Batangas',
           'Full Time',
           ['Technical Skills', 'Communication Skills', 'Teamwork'],
           ['Full-Stack Developer (2021-2023)']),
