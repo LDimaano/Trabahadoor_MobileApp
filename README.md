@@ -4,7 +4,7 @@ TrabahaDoor is a mobile application developed using Flutter that aims to connect
 
 ## Features
 
-- **Job Listings**: Browse and search for job opportunities/
+- **Job Listings**: Browse and search for job opportunities
 - **Profile Management**: Create profiles for both job seekers and employers.
 - **Application Tracking**: Track the status of job applications in real-time.
 - **Notifications**: Receive notifications for new job listings, application updates, and messages.
