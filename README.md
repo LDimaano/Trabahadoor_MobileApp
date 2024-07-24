@@ -55,3 +55,9 @@ The project follows the standard Flutter project structure:
 For any questions or feedback, please reach out to us at 21-06804@g.batstate-u.edu.ph
 
 Thank you for choosing TrabahaDoor! We hope that this front-end application becomes instrumental for your needs.
+
+## Project by:
+Boongaling, Jan Andrei
+Dimaandal, Carla Francesca
+Dimaano,Lance Frederick
+Flores, Julie Anne
