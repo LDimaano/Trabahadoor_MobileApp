@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:trabahadoor/screens/employer_side/employer.dart';
+import 'package:trabahadoor/screens/login_signup/widgets/login.dart';
 
 class SignUpForm_employer extends StatefulWidget {
   const SignUpForm_employer({super.key});
@@ -11,10 +13,6 @@ class _SignUpFormEmployerState extends State<SignUpForm_employer> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController companyNameController = TextEditingController();
   final TextEditingController companyDescriptionController =
-      TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
       TextEditingController();
 
   @override
@@ -85,51 +83,18 @@ class _SignUpFormEmployerState extends State<SignUpForm_employer> {
                         maxLines: 3,
                       ),
                       const SizedBox(height: 16.0),
-                      inputFile(
-                        label: 'Email',
-                        controller: emailController,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please enter your email';
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(height: 16.0),
-                      inputFile(
-                        label: 'Password',
-                        controller: passwordController,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please enter your password';
-                          }
-                          return null;
-                        },
-                        obscureText: true,
-                      ),
-                      const SizedBox(height: 16.0),
-                      inputFile(
-                        label: 'Confirm Password',
-                        controller: confirmPasswordController,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please confirm your password';
-                          }
-                          if (value != passwordController.text) {
-                            return 'Passwords do not match';
-                          }
-                          return null;
-                        },
-                        obscureText: true,
-                      ),
-                      const SizedBox(height: 16.0),
                       Center(
                         child: MaterialButton(
                           minWidth: double.infinity,
                           height: 60,
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
-                              // Sign up logic here
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const MainScreenemp()),
+                              );
                             }
                           },
                           color: Theme.of(context).primaryColor,
@@ -154,7 +119,11 @@ class _SignUpFormEmployerState extends State<SignUpForm_employer> {
                   children: <Widget>[
                     TextButton(
                       onPressed: () {
-                        // Navigate to Login page
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginPage()),
+                        );
                       },
                       child: Text(
                         "Already have an account? Login",

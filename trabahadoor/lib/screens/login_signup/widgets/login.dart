@@ -35,11 +35,10 @@ class LoginPage extends StatelessWidget {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    // Add the logo image
                     Image.asset(
                       'asset/images/login-img.png',
-                      height: 80, // Adjust the height as needed
-                      width: 80, // Adjust the width as needed
+                      height: 80,
+                      width: 80,
                     ),
                     const SizedBox(
                       height: 20,
