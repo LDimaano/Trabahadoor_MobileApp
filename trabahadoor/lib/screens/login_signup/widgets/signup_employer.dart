@@ -1,93 +1,169 @@
 import 'package:flutter/material.dart';
-import 'package:trabahadoor/screens/login_signup/login_signup.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:trabahadoor/screens/login_signup/widgets/signup.dart';
 
 class SignUpForm_employer extends StatefulWidget {
   const SignUpForm_employer({super.key});
 
   @override
-  _SignUpForm_employerState createState() => _SignUpForm_employerState();
+  _SignUpFormEmployerState createState() => _SignUpFormEmployerState();
 }
 
-class _SignUpForm_employerState extends State<SignUpForm_employer> {
+class _SignUpFormEmployerState extends State<SignUpForm_employer> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController fullNameController = TextEditingController();
   final TextEditingController companyNameController = TextEditingController();
-  final TextEditingController locationController = TextEditingController();
+  final TextEditingController companyDescriptionController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sign Up Form'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
+      body: SafeArea(
+        child: Container(
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height,
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                inputFile(
-                  label: 'Full Name',
-                  controller: fullNameController,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your full name';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 16.0),
-                inputFile(
-                  label: 'Company Name',
-                  controller: companyNameController,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your company name';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 16.0),
-                inputFile(
-                  label: 'Location',
-                  controller: locationController,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your location';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 16.0),
-                Center(
-                  child: MaterialButton(
-                    minWidth: double.infinity,
-                    height: 60,
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginSignup()),
-                        );
-                      }
-                    },
-                    color: Theme.of(context).primaryColor,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Image.asset(
+                      "asset/images/login-img.png",
+                      height: 100,
+                      width: 100,
                     ),
-                    child: const Text(
-                      "Sign up",
+                    const SizedBox(height: 20),
+                    const Text(
+                      "Sign Up",
                       style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18,
-                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 45,
                       ),
                     ),
+                    const SizedBox(height: 20),
+                    Text(
+                      "Create your employer account",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.grey[700],
+                        fontSize: 20,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                  ],
+                ),
+                Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      inputFile(
+                        label: 'Company Name',
+                        controller: companyNameController,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please enter your company name';
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 16.0),
+                      inputFile(
+                        label: 'Company Description',
+                        controller: companyDescriptionController,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please enter a description of your company';
+                          }
+                          return null;
+                        },
+                        maxLines: 3,
+                      ),
+                      const SizedBox(height: 16.0),
+                      inputFile(
+                        label: 'Email',
+                        controller: emailController,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please enter your email';
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 16.0),
+                      inputFile(
+                        label: 'Password',
+                        controller: passwordController,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please enter your password';
+                          }
+                          return null;
+                        },
+                        obscureText: true,
+                      ),
+                      const SizedBox(height: 16.0),
+                      inputFile(
+                        label: 'Confirm Password',
+                        controller: confirmPasswordController,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please confirm your password';
+                          }
+                          if (value != passwordController.text) {
+                            return 'Passwords do not match';
+                          }
+                          return null;
+                        },
+                        obscureText: true,
+                      ),
+                      const SizedBox(height: 16.0),
+                      Center(
+                        child: MaterialButton(
+                          minWidth: double.infinity,
+                          height: 60,
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              // Sign up logic here
+                            }
+                          },
+                          color: Theme.of(context).primaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Text(
+                            "Sign Up",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
+                ),
+                const SizedBox(height: 20),
+                Column(
+                  children: <Widget>[
+                    TextButton(
+                      onPressed: () {
+                        // Navigate to Login page
+                      },
+                      child: Text(
+                        "Already have an account? Login",
+                        style: TextStyle(
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -120,10 +196,12 @@ class _SignUpForm_employerState extends State<SignUpForm_employer> {
           controller: controller,
           obscureText: obscureText,
           maxLines: maxLines,
-          decoration: const InputDecoration(
-            border: OutlineInputBorder(),
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
             contentPadding:
-                EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
+                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
           ),
           validator: validator,
         ),

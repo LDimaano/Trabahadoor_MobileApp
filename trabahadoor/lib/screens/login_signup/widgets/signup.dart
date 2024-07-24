@@ -13,7 +13,7 @@ class JobseekerPage extends StatelessWidget {
       ),
       body: const Center(
         child: Text(
-          'Welcome to Jobseeker Page!',
+          'Welcome, Jobseeker!',
           style: TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 18,
@@ -35,7 +35,7 @@ class EmployerPage extends StatelessWidget {
       ),
       body: const Center(
         child: Text(
-          'Welcome to Employer Page!',
+          'Welcome, Employer!',
           style: TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 18,

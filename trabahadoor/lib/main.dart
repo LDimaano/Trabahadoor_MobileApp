@@ -5,6 +5,8 @@ import 'package:trabahadoor/screens/employer_side/employer.dart';
 import 'package:trabahadoor/screens/home/home.dart';
 import 'package:trabahadoor/screens/login_signup/login_signup.dart';
 import 'package:trabahadoor/screens/login_signup/widgets/signup.dart';
+import 'package:trabahadoor/screens/login_signup/widgets/signup_employer.dart';
+import 'package:trabahadoor/screens/login_signup/widgets/signup_jobseeker.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +28,6 @@ class MyApp extends StatelessWidget {
           hintColor: const Color(0x0ffed408),
           textTheme: GoogleFonts.poppinsTextTheme(),
         ),
-        home: const MainScreenemp());
+        home: const SignUpForm_employer());
   }
 }
