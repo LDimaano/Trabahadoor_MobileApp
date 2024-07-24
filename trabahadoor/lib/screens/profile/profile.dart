@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trabahadoor/screens/login_signup/login_signup.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -91,6 +92,29 @@ class ProfilePage extends StatelessWidget {
                   const SizedBox(height: 20),
                   _buildSectionTitle('Skills'),
                   _buildSkillList(),
+                  const SizedBox(height: 30),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginSignup(),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            const Color.fromRGBO(254, 247, 255, 1.0),
+                        foregroundColor: Theme.of(context).primaryColor,
+                        side: const BorderSide(
+                            color: Colors.transparent, width: 1.5),
+                        shape: const StadiumBorder(),
+                      ),
+                      child: const Text('Logout'),
+                    ),
+                  ),
                 ],
               ),
             ),

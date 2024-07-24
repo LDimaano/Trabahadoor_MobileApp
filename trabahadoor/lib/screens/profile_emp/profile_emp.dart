@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trabahadoor/screens/login_signup/login_signup.dart';
 
 class ProfilePage_emp extends StatelessWidget {
   const ProfilePage_emp({super.key});
@@ -27,38 +28,40 @@ class ProfilePage_emp extends StatelessWidget {
                     children: [
                       _buildProfilePicture(),
                       const SizedBox(width: 20),
-                      const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Alorica Philippines Inc.',
-                            style: TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 5),
-                          Row(
-                            children: [
-                              Icon(Icons.email, color: Colors.grey),
-                              SizedBox(width: 8),
-                              Text(
-                                'info@alorica.com',
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 5),
-                          Row(
-                            children: [
-                              Icon(Icons.location_on, color: Colors.grey),
-                              SizedBox(width: 8),
-                              Text(
-                                'SM City Lipa, Batangas',
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 20),
-                        ],
+                      const Flexible(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Alorica Philippines Inc.',
+                              style: TextStyle(
+                                  fontSize: 24, fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(height: 5),
+                            Row(
+                              children: [
+                                Icon(Icons.email, color: Colors.grey),
+                                SizedBox(width: 8),
+                                Text(
+                                  'info@alorica.com',
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 5),
+                            Row(
+                              children: [
+                                Icon(Icons.location_on, color: Colors.grey),
+                                SizedBox(width: 8),
+                                Text(
+                                  'SM City Lipa, Batangas',
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 20),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -84,6 +87,29 @@ class ProfilePage_emp extends StatelessWidget {
                     context,
                     'UI/UX Designer',
                     'Looking for a creative UI/UX designer to design web and mobile applications.',
+                  ),
+                  const SizedBox(height: 30),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginSignup(),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            const Color.fromRGBO(254, 247, 255, 1.0),
+                        foregroundColor: Theme.of(context).primaryColor,
+                        side: const BorderSide(
+                            color: Colors.transparent, width: 1.5),
+                        shape: const StadiumBorder(),
+                      ),
+                      child: const Text('Logout'),
+                    ),
                   ),
                 ],
               ),
@@ -224,7 +250,7 @@ class _JobApplicantsPageState extends State<JobApplicantsPage> {
                 ),
                 columnWidths: const {
                   0: FixedColumnWidth(120),
-                  1: FlexColumnWidth(200),
+                  1: FlexColumnWidth(),
                   2: FixedColumnWidth(150),
                 },
                 children: [
@@ -279,15 +305,13 @@ class _JobApplicantsPageState extends State<JobApplicantsPage> {
             ),
           ),
         ),
-        Flexible(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GestureDetector(
-              onTap: () => _showApplicantDetails(context, applicant),
-              child: Text(
-                applicant.name,
-                overflow: TextOverflow.ellipsis,
-              ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GestureDetector(
+            onTap: () => _showApplicantDetails(context, applicant),
+            child: Text(
+              applicant.name,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
         ),

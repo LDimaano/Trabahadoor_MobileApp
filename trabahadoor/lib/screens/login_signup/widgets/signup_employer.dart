@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:trabahadoor/screens/login_signup/widgets/signup.dart';
 
 class SignUpForm_employer extends StatefulWidget {
   const SignUpForm_employer({super.key});
@@ -12,10 +10,12 @@ class SignUpForm_employer extends StatefulWidget {
 class _SignUpFormEmployerState extends State<SignUpForm_employer> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController companyNameController = TextEditingController();
-  final TextEditingController companyDescriptionController = TextEditingController();
+  final TextEditingController companyDescriptionController =
+      TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
