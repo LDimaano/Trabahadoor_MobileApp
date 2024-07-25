@@ -5,6 +5,92 @@ class JobDetailemp extends StatelessWidget {
   final Jobseeker job;
   const JobDetailemp(this.job, {super.key});
 
+  void _showMessageDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Colors.white,
+          title: const Text('Send a Message',
+              style: TextStyle(fontWeight: FontWeight.bold)),
+          content: SizedBox(
+            width: 400,
+            height: 250,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Message:',
+                  style: TextStyle(fontSize: 16),
+                ),
+                const SizedBox(height: 10),
+                TextField(
+                  maxLines: 4,
+                  decoration: InputDecoration(
+                    hintText: 'Enter your message here...',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(150, 30),
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      side: BorderSide.none,
+                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.attach_file,
+                          color: Theme.of(context).primaryColor, size: 16),
+                      const SizedBox(width: 5),
+                      const Text(
+                        'Attach Files',
+                        style: TextStyle(
+                          color: Color.fromRGBO(3, 63, 118, 1),
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.black,
+              ),
+              child: const Text('Cancel'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+                // Add your message sending logic here
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).primaryColor,
+                foregroundColor: Colors.white,
+              ),
+              child: const Text('Send'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -191,7 +277,9 @@ class JobDetailemp extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         )),
-                    onPressed: () {},
+                    onPressed: () {
+                       _showMessageDialog(context);
+                    },
                     child: const Text('Message'),
                   ),
                 )

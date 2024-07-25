@@ -79,8 +79,7 @@ class _SignupPageState extends State<SignupPage> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
-          height: MediaQuery.of(context).size.height - 50,
+          padding: const EdgeInsets.symmetric(horizontal: 30),
           width: double.infinity,
           child: Form(
             key: _formKey,
@@ -89,6 +88,12 @@ class _SignupPageState extends State<SignupPage> {
               children: <Widget>[
                 Column(
                   children: <Widget>[
+                    Image.asset(
+                      "asset/images/login-img.png",
+                      height: 100,
+                      width: 100,
+                    ),
+                    const SizedBox(height: 20),
                     const Text(
                       "Sign up",
                       style: TextStyle(
@@ -96,9 +101,7 @@ class _SignupPageState extends State<SignupPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
+                    const SizedBox(height: 20),
                     Text(
                       "Create an account, It's free ",
                       style: TextStyle(fontSize: 15, color: Colors.grey[700]),
@@ -161,52 +164,37 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   ],
                 ),
-                Container(
-                  padding: const EdgeInsets.only(top: 3, left: 3),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    border: const Border(
-                      bottom: BorderSide(color: Colors.black),
-                      top: BorderSide(color: Colors.black),
-                      left: BorderSide(color: Colors.black),
-                      right: BorderSide(color: Colors.black),
-                    ),
-                  ),
-                  child: MaterialButton(
-                    minWidth: double.infinity,
-                    height: 60,
-                    onPressed: () {
-                      if (_formKey.currentState!.validate() &&
-                          _userType != null) {
-                        if (_userType == 'jobseeker') {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const SignUpFormJobseeker()),
-                          );
-                        } else if (_userType == 'employer') {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const SignUpForm_employer()),
-                          );
-                        }
+                MaterialButton(
+                  minWidth: double.infinity,
+                  height: 60,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate() && _userType != null) {
+                      if (_userType == 'jobseeker') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignUpFormJobseeker()),
+                        );
+                      } else if (_userType == 'employer') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignUpForm_employer()),
+                        );
                       }
-                    },
-                    color: Theme.of(context).primaryColor,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: const Text(
-                      "Next",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18,
-                        color: Colors.white,
-                      ),
+                    }
+                  },
+                  color: Theme.of(context).primaryColor,
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  child: const Text(
+                    "Next",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -217,8 +205,8 @@ class _SignupPageState extends State<SignupPage> {
                     Text("Already have an account?"),
                     Text(
                       " Login",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600, fontSize: 18),
                     ),
                   ],
                 ),
@@ -230,12 +218,13 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 
-  Widget inputFile(
-      {required String label,
-      bool obscureText = false,
-      bool isPassword = false,
-      TextEditingController? controller,
-      TextEditingController? confirmPasswordController}) {
+  Widget inputFile({
+    required String label,
+    bool obscureText = false,
+    bool isPassword = false,
+    TextEditingController? controller,
+    TextEditingController? confirmPasswordController,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
