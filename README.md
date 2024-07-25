@@ -48,7 +48,9 @@ The project follows the standard Flutter project structure:
 
 - `lib/`: Contains the main application code
   - `screens/`: Contains the different screens of the app
-  - `widgets/`: Contains reusable widgets 
+  - `widgets/`: Contains reusable widgets
+  - `models/`: Contains text data prototype
+
 
 ## Contact
 
