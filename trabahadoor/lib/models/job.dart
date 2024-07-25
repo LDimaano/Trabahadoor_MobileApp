@@ -11,7 +11,7 @@ class Job {
   static List<Job> generateJobs() {
     return [
       Job(
-        'Swift Logistics,',
+        'Swift Logistics',
         'asset/images/Swift.jpeg',
         false,
         'Operations Manager',
@@ -26,7 +26,7 @@ class Job {
         ],
       ),
       Job(
-        'OptiTech,',
+        'OptiTech',
         'asset/images/Optitech.png',
         true,
         'IT Support Specialist',
