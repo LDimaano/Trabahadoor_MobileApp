@@ -101,7 +101,6 @@ class _SignupPageState extends State<SignupPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 20),
                     Text(
                       "Create an account, It's free ",
                       style: TextStyle(fontSize: 15, color: Colors.grey[700]),
@@ -168,18 +167,21 @@ class _SignupPageState extends State<SignupPage> {
                   minWidth: double.infinity,
                   height: 60,
                   onPressed: () {
-                    if (_formKey.currentState!.validate() && _userType != null) {
+                    if (_formKey.currentState!.validate() &&
+                        _userType != null) {
                       if (_userType == 'jobseeker') {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const SignUpFormJobseeker()),
+                              builder: (context) =>
+                                  const SignUpFormJobseeker()),
                         );
                       } else if (_userType == 'employer') {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const SignUpForm_employer()),
+                              builder: (context) =>
+                                  const SignUpForm_employer()),
                         );
                       }
                     }
@@ -205,8 +207,8 @@ class _SignupPageState extends State<SignupPage> {
                     Text("Already have an account?"),
                     Text(
                       " Login",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600, fontSize: 18),
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
                     ),
                   ],
                 ),

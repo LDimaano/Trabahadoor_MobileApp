@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:trabahadoor/screens/login_signup/login_signup.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
