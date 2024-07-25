@@ -39,7 +39,7 @@ class Homechat extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 TextField(
-                  maxLines: 4,
+                  maxLines: 2,
                   decoration: InputDecoration(
                     hintText: 'Enter your message here...',
                     border: OutlineInputBorder(

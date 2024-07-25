@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:trabahadoor/screens/chat_empside/widgets/ActiveChats_empside.dart';
 import 'package:trabahadoor/screens/chat_empside/widgets/RecentChats_empside.dart';
 
-
 class Homechat_emp extends StatelessWidget {
   const Homechat_emp({super.key});
 
-  
   void _showMessageDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -41,7 +39,7 @@ class Homechat_emp extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 TextField(
-                  maxLines: 4,
+                  maxLines: 2,
                   decoration: InputDecoration(
                     hintText: 'Enter your message here...',
                     border: OutlineInputBorder(
@@ -171,7 +169,7 @@ class Homechat_emp extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-           _showMessageDialog(context);
+          _showMessageDialog(context);
         },
         backgroundColor: const Color.fromRGBO(3, 63, 118, 1),
         child: const Icon(
