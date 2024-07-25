@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:trabahadoor/screens/chat/HomeChat.dart';
 import 'package:trabahadoor/screens/login_signup/login_signup.dart';
 import 'package:trabahadoor/screens/login_signup/widgets/signup.dart';
 import 'package:trabahadoor/screens/login_signup/widgets/signup_employer.dart';
@@ -25,6 +26,6 @@ class MyApp extends StatelessWidget {
           hintColor: const Color(0x0ffed408),
           textTheme: GoogleFonts.poppinsTextTheme(),
         ),
-        home: const SignupPage());
+        home: const SignUpForm_employer());
   }
 }
