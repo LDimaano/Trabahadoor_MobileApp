@@ -27,6 +27,7 @@ To run TrabahaDoor locally, you need to have the following installed:
 
     ```bash
     git clone https://github.com/yourusername/trabahadoor.git
+    cd Trabahadoor_MobileApp
     cd trabahadoor
     ```
 
