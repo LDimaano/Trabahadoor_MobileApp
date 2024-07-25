@@ -56,7 +56,8 @@ class EmployerAppBar extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => EmployerNotificationPage()),
+                              builder: (context) =>
+                                  const EmployerNotificationPage()),
                         );
                       },
                       child: Stack(

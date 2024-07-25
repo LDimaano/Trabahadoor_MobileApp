@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:trabahadoor/screens/employer_side/employer.dart';
-import 'package:trabahadoor/screens/home/home.dart';
 import 'package:trabahadoor/screens/login_signup/login_signup.dart';
 
 void main() {

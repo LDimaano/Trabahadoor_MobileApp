@@ -12,6 +12,7 @@ class Homechat extends StatelessWidget {
         title: const Text('Messages', style: TextStyle(color: Colors.white)),
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
+        automaticallyImplyLeading: false,
       ),
       backgroundColor:
           const Color.fromARGB(255, 217, 211, 211).withOpacity(0.1),

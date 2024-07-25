@@ -11,6 +11,7 @@ class ProfilePage extends StatelessWidget {
         title: const Text('Profile', style: TextStyle(color: Colors.white)),
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
+        automaticallyImplyLeading: false,
       ),
       backgroundColor: const Color.fromRGBO(254, 247, 255, 1.0),
       body: SingleChildScrollView(

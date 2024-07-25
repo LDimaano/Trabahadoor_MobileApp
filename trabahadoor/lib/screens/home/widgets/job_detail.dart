@@ -36,9 +36,7 @@ class JobDetail extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {
-                    print('Attach Files button pressed');
-                  },
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(150, 30),
                     backgroundColor: Colors.white,
@@ -214,13 +212,11 @@ class JobDetail extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                         )),
                     onPressed: () {
-                      _showApplicationDialog(
-                          context); // Show the application dialog
+                      _showApplicationDialog(context);
                     },
                     child: const Text(
                       'Apply Now!',
-                      style: TextStyle(
-                          color: Colors.white), // Text color inside the button
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 )

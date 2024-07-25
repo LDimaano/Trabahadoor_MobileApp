@@ -127,7 +127,6 @@ class EmployerSide extends StatelessWidget {
             ),
           ]),
           SingleChildScrollView(
-            // Add SingleChildScrollView here
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
