@@ -223,7 +223,7 @@ class _JobApplicantsPageState extends State<JobApplicantsPage> {
         name: 'Mary Loi Ricalde',
         status: 'Accepted',
         image: 'asset/images/chatemp3.jpg',
-        message: 'Excited to contribute to your team and grow in this role.',
+        message: 'Excited to contribute to your team and develop in this role.',
         location: 'Abra, San Jose',
         email: 'MLRicalde@gmail.com'),
   ];
