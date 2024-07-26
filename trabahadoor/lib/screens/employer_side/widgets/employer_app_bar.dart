@@ -38,7 +38,7 @@ class EmployerAppBar extends StatelessWidget {
                       )),
                   SizedBox(height: 10),
                   Text(
-                    'Hoshi!',
+                    'Alorica!',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 28,
@@ -80,7 +80,7 @@ class EmployerAppBar extends StatelessWidget {
                   const SizedBox(width: 20),
                   ClipOval(
                       child: Image.asset(
-                    'asset/images/profile_emp.jpg',
+                    'asset/images/Alorica.png',
                     width: 40,
                   ))
                 ],

@@ -13,15 +13,6 @@ class SearchPage extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
-            Row(
-              children: [
-                Expanded(flex: 2, child: Container()),
-                Expanded(
-                  flex: 1,
-                  child: Container(color: Colors.white),
-                ),
-              ],
-            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
