@@ -190,7 +190,7 @@ class JobDetailemp extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 const Text(
-                  'Requirements',
+                  'Skills',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10),
