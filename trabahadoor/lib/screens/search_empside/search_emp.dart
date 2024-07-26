@@ -18,9 +18,7 @@ class SearchPage extends StatelessWidget {
                 Expanded(flex: 2, child: Container()),
                 Expanded(
                   flex: 1,
-                  child: Container(
-                    color: Colors.grey.withOpacity(0.1),
-                  ),
+                  child: Container(color: Colors.white),
                 ),
               ],
             ),

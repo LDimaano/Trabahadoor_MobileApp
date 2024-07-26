@@ -120,10 +120,7 @@ class EmployerSide extends StatelessWidget {
             ),
             Expanded(
               flex: 1,
-              child: Container(
-                color:
-                    const Color.fromARGB(255, 217, 211, 211).withOpacity(0.1),
-              ),
+              child: Container(color: Colors.white),
             ),
           ]),
           SingleChildScrollView(
