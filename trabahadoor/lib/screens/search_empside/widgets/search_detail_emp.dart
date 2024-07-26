@@ -77,7 +77,6 @@ class JobDetailemp extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
-                // Add your message sending logic here
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Theme.of(context).primaryColor,
@@ -191,7 +190,7 @@ class JobDetailemp extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 const Text(
-                  'Requirements',
+                  'Skills',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10),
@@ -278,7 +277,7 @@ class JobDetailemp extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                         )),
                     onPressed: () {
-                       _showMessageDialog(context);
+                      _showMessageDialog(context);
                     },
                     child: const Text('Message'),
                   ),
